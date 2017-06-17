@@ -1,0 +1,27 @@
+[submodule "pack/plugins/start/YouCompleteMe"]
+	path = pack/plugins/start/YouCompleteMe
+	url = https://github.com/Valloric/YouCompleteMe.git
+[submodule "pack/plugins/start/delimitMate"]
+	path = pack/plugins/start/delimitMate
+	url = https://github.com/Raimondi/delimitMate.git
+[submodule "pack/plugins/start/nerdtree"]
+	path = pack/plugins/start/nerdtree
+	url = https://github.com/scrooloose/nerdtree
+[submodule "pack/plugins/start/nerdcommenter"]
+	path = pack/plugins/start/nerdcommenter
+	url = https://github.com/scrooloose/nerdcommenter
+[submodule "pack/plugins/start/ranger.vim"]
+	path = pack/plugins/start/ranger.vim
+	url = https://github.com/francoiscabrol/ranger.vim
+[submodule "pack/plugins/start/ultisnips"]
+	path = pack/plugins/start/ultisnips
+	url = https://github.com/SirVer/ultisnips
+[submodule "pack/plugins/start/vim-snippets"]
+	path = pack/plugins/start/vim-snippets
+	url = https://github.com/honza/vim-snippets
+[submodule "pack/plugins/start/vim-nerdtree-syntax-highlight"]
+	path = pack/plugins/start/vim-nerdtree-syntax-highlight
+	url = https://github.com/tiagofumo/vim-nerdtree-syntax-highlight
+[submodule "pack/plugins/start/vim-devicons"]
+	path = pack/plugins/start/vim-devicons
+	url = https://github.com/ryanoasis/vim-devicons

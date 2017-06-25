@@ -20,7 +20,18 @@ let g:NERDTreeHighlightFoldersFullName = 1
 
 "ultisnips
 let g:UltiSnipsSnippetDirectories=["UltiSnips", "vim-snippets"]
-let g:UltiSnipsExpandTrigger="<leader><S-e>"
+
+let g:UltiSnipsExpandTrigger = "<nop>" 
+let g:ulti_expand_or_jump_res = 0 
+function ExpandSnippetOrCarriageReturn() 
+	let snippet = UltiSnips#ExpandSnippetOrJump() 
+	if g:ulti_expand_or_jump_res > 0 
+		return snippet 
+	else 
+		return "\<CR>" 
+	endif 
+endfunction 
+inoremap <expr> <CR> pumvisible() ? "<C-R>=ExpandSnippetOrCarriageReturn()<CR>" : "\<CR>" 
 
 "ranger
 let g:ranger_open_new_tab = 1

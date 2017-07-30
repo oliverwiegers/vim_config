@@ -33,6 +33,10 @@ function ExpandSnippetOrCarriageReturn()
 endfunction 
 inoremap <expr> <CR> pumvisible() ? "<C-R>=ExpandSnippetOrCarriageReturn()<CR>" : "\<CR>" 
 
+"YouCompleteMe
+set completeopt-=preview
+let g:ycm_python_binary_path = 'python'
+
 "ranger
 let g:ranger_open_new_tab = 1
 let g:ranger_map_keys = 0
@@ -58,10 +62,10 @@ hi CursorLine term=bold cterm=bold
 
 "hilight tabs
 let blacklist = ['html', 'css', 'json', 'yaml']
-autocmd BufReadPost * if index(blacklist, &ft) < 0 | set tabstop=4 softtabstop=4 shiftwidth=4
-autocmd BufReadPost * if index(blacklist, &ft) < 0 | set noexpandtab | retab! 4
-autocmd BufReadPre * if index(blacklist, &ft) < 0 | set expandtab | retab! 4
-autocmd BufWritePost * if index(blacklist, &ft) < 0 | set noexpandtab | retab! 4
+autocmd Filetype * if index(blacklist, &ft) < 0 | set tabstop=4 softtabstop=4 shiftwidth=4
+autocmd Filetype * if index(blacklist, &ft) < 0 | set noexpandtab | retab! 4
+autocmd Filetype * if index(blacklist, &ft) < 0 | set expandtab | retab! 4
+autocmd Filetype * if index(blacklist, &ft) < 0 | set noexpandtab | retab! 4
 
 
 autocmd Filetype html setlocal expandtab softtabstop=2 shiftwidth=2 tabstop=2

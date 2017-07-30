@@ -3,7 +3,7 @@
 "######################
 
 "statusline
-set rtp+=$PREFIX/lib/python3.6/site-packages/powerline/bindings/vim/
+set rtp+=/usr/lib/python2.7/site-packages/powerline/bindings/vim/
 set laststatus=2
 set t_Co=256
 
@@ -36,6 +36,7 @@ inoremap <expr> <CR> pumvisible() ? "<C-R>=ExpandSnippetOrCarriageReturn()<CR>" 
 "YouCompleteMe
 set completeopt-=preview
 let g:ycm_python_binary_path = 'python'
+let g:ycm_global_ycm_extra_conf = "~/.vim/pack/plugins/start/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py"
 
 "ranger
 let g:ranger_open_new_tab = 1

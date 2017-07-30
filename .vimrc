@@ -62,40 +62,21 @@ hi LineNr ctermfg=lightgrey ctermbg=black
 hi CursorLine term=bold cterm=bold
 
 "hilight tabs
-let blacklist = ['html', 'css', 'json', 'yaml']
-autocmd Filetype * if index(blacklist, &ft) < 0 | set tabstop=4 softtabstop=4 shiftwidth=4
-autocmd Filetype * if index(blacklist, &ft) < 0 | set noexpandtab | retab! 4
-autocmd Filetype * if index(blacklist, &ft) < 0 | set expandtab | retab! 4
-autocmd Filetype * if index(blacklist, &ft) < 0 | set noexpandtab | retab! 4
+set list
+set listchars=tab:\|·,trail:·
+set autoindent
+set smartindent
 
-
-autocmd Filetype html setlocal expandtab softtabstop=2 shiftwidth=2 tabstop=2
-autocmd Filetype html retab
-
-autocmd Filetype css setlocal expandtab softtabstop=2 shiftwidth=2 tabstop=2
-autocmd Filetype css retab
-
-autocmd Filetype json setlocal expandtab softtabstop=2 shiftwidth=2 tabstop=2
-autocmd Filetype json retab
-
-autocmd Filetype yaml setlocal expandtab softtabstop=2 shiftwidth=2 tabstop=2
-autocmd Filetype yaml retab
-
-"markdown
-au BufRead,BufNewFile *.md set filetype=markdown
+"filetype detection
+let blacklist = ['html', 'css', 'json', 'yaml', 'cpp']
+au BufRead,BufWrite,BufNew * if index(blacklist, &ft) < 0 | set tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab expandtab noexpandtab
+au BufRead,BufWrite,BufNew * if index(blacklist, &ft) < 0 | retab!4
+au Filetype html,css,yaml,cpp setlocal tabstop=2 softtabstop=2 shiftwidth=2 noexpandtab expandtab noexpandtab colorcolumn=79 textwidth=79
+au Filetype html,css,yaml,cpp retab!2
 
 "splitting
 set splitbelow
 set splitright
-
-"python
-au BufRead,BufNewFile *.py set colorcolumn=79
-au BufRead,BufNewFile *.py set textwidth=79
-"highlight ColorColumn
-
-"html
-au BufRead,BufNewFile *.html set colorcolumn=79
-
 
 "keymappings
 let mapleader = "\<Space>"

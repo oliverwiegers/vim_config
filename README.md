@@ -13,6 +13,8 @@ Nothing to fancy just my vim config.
 - [vim-snippets](https://github.com/honza/vim-snippets)
 - [vim-devicons](https://github.com/ryanoasis/vim-devicons)
 - [vim-nerdtree-syntax-highlight](https://github.com/tiagofumo/vim-nerdtree-syntax-highlight)
+- [xterm-color-table](https://github.com/guns/xterm-color-table.vim.git)
+- [CtrlP](https://github.com/ctrlpvim/ctrlp.vim.git)
 
 ## Look
 

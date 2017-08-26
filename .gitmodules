@@ -25,3 +25,9 @@
 [submodule "pack/plugins/start/vim-devicons"]
 	path = pack/plugins/start/vim-devicons
 	url = https://github.com/ryanoasis/vim-devicons
+[submodule "ctrlp.vim"]
+	path = ctrlp.vim
+	url = https://github.com/ctrlpvim/ctrlp.vim.git
+[submodule "xterm-color-table.vim"]
+	path = xterm-color-table.vim
+	url = https://github.com/guns/xterm-color-table.vim.git

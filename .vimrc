@@ -1,46 +1,50 @@
+"load local vimrc
+set exrc secure
 "######################
 "#		 plugins	  #
 "######################
 
 "statusline
-set rtp+=/usr/lib/python2.7/site-packages/powerline/bindings/vim/
+set rtp+=/usr/lib/python3.6/site-packages/powerline/bindings/vim/
 set laststatus=2
-set t_Co=256
-
-"nerdtree
-let NERDTreeShowHidden=1
-
-"nerd tree highlight
-let g:NERDTreeFileExtensionHighlightFullName = 1 
-let g:NERDTreeExactMatchHighlightFullName = 1 
-let g:NERDTreePatternMatchHighlightFullName = 1
-
-let g:NERDTreeHighlightFolders = 1 
-let g:NERDTreeHighlightFoldersFullName = 1
 
 "ultisnips
 let g:UltiSnipsSnippetDirectories=["UltiSnips", "vim-snippets"]
+let g:UltiSnipsExpandTrigger = "<nop>"
+let g:ulti_expand_or_jump_res = 0
 
-let g:UltiSnipsExpandTrigger = "<nop>" 
-let g:ulti_expand_or_jump_res = 0 
-function ExpandSnippetOrCarriageReturn() 
-	let snippet = UltiSnips#ExpandSnippetOrJump() 
-	if g:ulti_expand_or_jump_res > 0 
-		return snippet 
-	else 
-		return "\<CR>" 
-	endif 
-endfunction 
-inoremap <expr> <CR> pumvisible() ? "<C-R>=ExpandSnippetOrCarriageReturn()<CR>" : "\<CR>" 
+function ExpandSnippetOrCarriageReturn()
+	let snippet = UltiSnips#ExpandSnippetOrJump()
+	if g:ulti_expand_or_jump_res > 0
+		return snippet
+	else
+		return "\<CR>"
+	endif
+endfunction
+
+inoremap <expr> <CR> pumvisible() ? "<C-R>=ExpandSnippetOrCarriageReturn()<CR>"
+	\ : "\<CR>"
 
 "YouCompleteMe
 set completeopt-=preview
 let g:ycm_python_binary_path = 'python'
-let g:ycm_global_ycm_extra_conf = "~/.vim/pack/plugins/start/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py"
+let g:ycm_global_ycm_extra_conf =
+	\ "~/.vim/pack/plugins/start/YouCompleteMe/"
+	\ "third_party/ycmd/cpp/ycm/.ycm_extra_conf.py"
 
 "ranger
 let g:ranger_open_new_tab = 1
 let g:ranger_map_keys = 0
+
+"CtrlP
+let g:ctrlp_map = '<Leader>ll'
+let g:ctrlp_cmd = 'CtrlPMixed'
+let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_root_markers = ['makefile']
+let g:ctrlp_prompt_mappings = {
+	\ 'AcceptSelection("e")': ['<c-t>'],
+	\ 'AcceptSelection("t")': ['<cr>'],
+	\ }
 
 "######################
 "#		 personal	  #
@@ -51,66 +55,59 @@ set nocompatible
 set encoding=utf-8
 filetype on
 filetype plugin indent on
+let &path="/src/include"
+set lazyredraw
+set ttyfast
 
 "colors
-colorscheme angr
+set t_Co=256
+colorscheme custom
 syntax on
-set number
-set cursorcolumn
-set cursorline
-hi LineNr ctermfg=lightgrey ctermbg=black
-hi CursorLine term=bold cterm=bold
+set number cursorline cursorcolumn
 
 "hilight tabs
-set list
-set listchars=tab:\|·,trail:·
-set autoindent
-set smartindent
+set list listchars=tab:\|·,trail:·
+set autoindent smartindent
 
 "filetype detection
+function Set_sw(index, length)
+	if a:index < 0
+		let sw=4
+	elseif a:index>=0 && a:index<a:length
+		let sw=2
+	endif
+	
+	execute "set tabstop=".sw
+	execute "set softtabstop=".sw
+	execute "set shiftwidth=".sw
+	set noexpandtab expandtab noexpandtab colorcolumn=81 textwidth=81
+	retab!sw
+endfunction
+
 let blacklist = ['html', 'css', 'json', 'yaml', 'cpp']
-au BufRead,BufWrite,BufNew * if index(blacklist, &ft) < 0 | set tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab expandtab noexpandtab
-au BufRead,BufWrite,BufNew * if index(blacklist, &ft) < 0 | retab!4
-au Filetype html,css,yaml,cpp setlocal tabstop=2 softtabstop=2 shiftwidth=2 noexpandtab expandtab noexpandtab colorcolumn=79 textwidth=79
-au Filetype html,css,yaml,cpp retab!2
+au BufRead,BufNewFile,BufNew * 
+	\ call Set_sw(index(blacklist, &ft), len(blacklist))
 
 "splitting
-set splitbelow
-set splitright
+set splitbelow splitright
 
 "keymappings
 let mapleader = "\<Space>"
 inoremap jk <ESC>
-map <Leader>m :NERDTreeToggle<CR>
+map <Leader><Space> :NERDTreeToggle<CR>
 map <Leader>f :Ranger<CR>
+nnoremap <F2> :make!<cr>
+nnoremap <F3> :make! clean<cr>
+
+nnoremap gf <C-W>gf
+vnoremap gf <C-W>gf
+nnoremap <Leader>t :tabnew 
 
 "save file as root
 cmap w!! w !sudo tee % >/dev/null
-
-"disable arrow keys
-inoremap <Up> <Nop>
-inoremap <Down> <Nop>
-inoremap <Left> <Nop>
-inoremap <Right> <Nop>
-noremap <Up> <Nop>
-noremap <Down> <Nop>
-noremap <Left> <Nop>
-noremap <Right> <Nop>
-vnoremap <Up> <Nop>
-vnoremap <Down> <Nop>
-vnoremap <Left> <Nop>
-vnoremap <Right> <Nop>
 
 "split navigation
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
-"Swap top/bottom or left/right split
-noremap Ctrl+W R
-"Break out current window into a new tabview
-noremap Ctrl+W T
-"Close every window in the current tabview but the current one
-noremap Ctrl+W o
-"Normalize all split sizes, which is very handy when resizing terminal
-noremap ctrl + w =

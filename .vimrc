@@ -5,8 +5,9 @@ set exrc secure
 "######################
 
 "statusline
-set rtp+=$PREFIX/lib/python3.6/site-packages/powerline/bindings/vim/
+set rtp+=/usr/lib/python3.6/site-packages/powerline/bindings/vim/
 set laststatus=2
+
 
 "ultisnips
 let g:UltiSnipsSnippetDirectories=["UltiSnips", "vim-snippets"]
@@ -28,9 +29,7 @@ inoremap <expr> <CR> pumvisible() ? "<C-R>=ExpandSnippetOrCarriageReturn()<CR>"
 "YouCompleteMe
 set completeopt-=preview
 let g:ycm_python_binary_path = 'python'
-let g:ycm_global_ycm_extra_conf =
-	\ "~/.vim/pack/plugins/start/YouCompleteMe/"
-	\ "third_party/ycmd/cpp/ycm/.ycm_extra_conf.py"
+let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
 
 "ranger
 let g:ranger_open_new_tab = 1
@@ -55,13 +54,14 @@ set nocompatible
 set encoding=utf-8
 filetype on
 filetype plugin indent on
-let &path="/src/include"
+let &path.="/src/include"
 set lazyredraw
 set ttyfast
 
 "colors
 set t_Co=256
-colorscheme custom
+colorscheme gruvbox
+set background=dark
 syntax on
 set number cursorline cursorcolumn
 
@@ -76,12 +76,14 @@ function Set_sw(index, length)
 	elseif a:index>=0 && a:index<a:length
 		let sw=2
 	endif
-	
+
 	execute "set tabstop=".sw
 	execute "set softtabstop=".sw
 	execute "set shiftwidth=".sw
-	set noexpandtab expandtab noexpandtab colorcolumn=81 textwidth=81
-	retab!sw
+	"is needed because NERDTREE will set modifiable off so everytime you open
+	"a new tab from NERDTREE an error ocours
+	set modifiable
+	set noexpandtab expandtab noexpandtab colorcolumn=81 textwidth=80 | retab!sw
 endfunction
 
 let blacklist = ['html', 'css', 'json', 'yaml', 'cpp']
@@ -96,6 +98,7 @@ let mapleader = "\<Space>"
 inoremap jk <ESC>
 map <Leader><Space> :NERDTreeToggle<CR>
 map <Leader>f :Ranger<CR>
+map <S-u> :redo<CR>
 nnoremap <F2> :make!<cr>
 nnoremap <F3> :make! clean<cr>
 

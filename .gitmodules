@@ -31,3 +31,9 @@
 [submodule "pack/plugins/start/xterm-color-table.vim"]
 	path = pack/plugins/start/xterm-color-table.vim
 	url = https://github.com/guns/xterm-color-table.vim.git
+[submodule "pack/plugins/start/gruvbox"]
+	path = pack/plugins/start/gruvbox
+	url = https://github.com/morhetz/gruvbox.git
+[submodule "pack/plugins/start/airline"]
+	path = pack/plugins/start/airline
+	url = https://github.com/vim-airline/vim-airline.git

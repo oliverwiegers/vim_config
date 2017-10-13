@@ -4,11 +4,6 @@ set exrc secure
 "#		 plugins	  #
 "######################
 
-"statusline
-set rtp+=/usr/lib/python3.6/site-packages/powerline/bindings/vim/
-set laststatus=2
-
-
 "ultisnips
 let g:UltiSnipsSnippetDirectories=["UltiSnips", "vim-snippets"]
 let g:UltiSnipsExpandTrigger = "<nop>"

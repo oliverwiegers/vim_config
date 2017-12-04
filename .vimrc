@@ -4,6 +4,13 @@ set exrc secure
 "#		 plugins	  #
 "######################
 
+"airline
+let g:airline_powerline_fonts = 1
+
+"devicons
+set encoding=utf8
+set guifont=Hack_Nerd_Font:h13
+
 "ultisnips
 let g:UltiSnipsSnippetDirectories=["UltiSnips", "vim-snippets"]
 let g:UltiSnipsExpandTrigger = "<nop>"
@@ -41,10 +48,41 @@ let g:ctrlp_prompt_mappings = {
 	\ }
 
 "######################
+"#		 work		  #
+"######################
+
+set copyindent
+set clipboard=unnamed
+
+set laststatus=2
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
+
+let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': ['ruby',
+	\ 'python', 'puppet']}
+let g:syntastic_puppet_puppetlint_args = '--no-80chars-check
+	\ --no-140chars-check'
+let g:syntastic_yaml_checkers = ['yamllint']
+let g:syntastic_yaml_yamllint_args = '-c /Users/owiegers/Documents/yamllint.cfg'
+
+au BufRead,BufNewFile *.asm set filetype=nasm
+au BufRead,BufNewFile *.nix set filetype=yaml
+au BufRead,BufNewFile *.pp	set filetype=puppet
+
+"######################
 "#		 personal	  #
 "######################
 
+"writing
+set spell spelllang=en_us
+
 "general
+set backspace=indent,eol,start
 set nocompatible
 set encoding=utf-8
 filetype on
@@ -66,7 +104,7 @@ set autoindent smartindent
 
 "filetype detection
 function Set_sw(index, length)
-	if a:index < 0
+	if a:index<0
 		let sw=4
 	elseif a:index>=0 && a:index<a:length
 		let sw=2
@@ -78,11 +116,16 @@ function Set_sw(index, length)
 	"is needed because NERDTREE will set modifiable off so everytime you open
 	"a new tab from NERDTREE an error ocours
 	set modifiable
-	set noexpandtab expandtab noexpandtab colorcolumn=81 textwidth=80 | retab!sw
+	if a:index==3
+		set expandtab colorcolumn=81 textwidth=80 | retab.sw
+	else
+		set noexpandtab expandtab noexpandtab colorcolumn=81 textwidth=80 |
+			\ retab!sw
+	endif
 endfunction
 
 let blacklist = ['html', 'css', 'json', 'yaml', 'cpp']
-au BufRead,BufNewFile,BufNew * 
+au BufRead,BufNewFile,BufNew *
 	\ call Set_sw(index(blacklist, &ft), len(blacklist))
 
 "splitting
@@ -109,3 +152,11 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
+map <Leader>h :split<CR>
+map <Leader>v :vsplit<CR>
+
+"incsearch
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)

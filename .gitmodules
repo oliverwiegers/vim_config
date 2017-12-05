@@ -22,9 +22,6 @@
 [submodule "pack/plugins/start/vim-nerdtree-syntax-highlight"]
 	path = pack/plugins/start/vim-nerdtree-syntax-highlight
 	url = https://github.com/tiagofumo/vim-nerdtree-syntax-highlight
-[submodule "pack/plugins/start/vim-devicons"]
-	path = pack/plugins/start/vim-devicons
-	url = https://github.com/ryanoasis/vim-devicons
 [submodule "pack/plugins/start/ctrlp.vim"]
 	path = pack/plugins/start/ctrlp.vim
 	url = https://github.com/ctrlpvim/ctrlp.vim.git
@@ -49,3 +46,6 @@
 [submodule "pack/plugins/start/vim-puppet"]
 	path = pack/plugins/start/vim-puppet
 	url = https://github.com/rodjek/vim-puppet.git
+[submodule "pack/plugins/start/vim-markdown"]
+	path = pack/plugins/start/vim-markdown
+	url = https://github.com/tpope/vim-markdown.git

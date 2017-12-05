@@ -4,6 +4,9 @@ set exrc secure
 "#		 plugins	  #
 "######################
 
+"vim-markdown
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+
 "airline
 let g:airline_powerline_fonts = 1
 
@@ -12,7 +15,7 @@ set encoding=utf8
 set guifont=Hack_Nerd_Font:h13
 
 "ultisnips
-let g:UltiSnipsSnippetDirectories=["UltiSnips", "vim-snippets"]
+let g:UltiSnipsSnippetDirectories=$HOME.'/.vim/pack/plugins/start/vim-snippets/UltiSnips'
 let g:UltiSnipsExpandTrigger = "<nop>"
 let g:ulti_expand_or_jump_res = 0
 

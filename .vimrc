@@ -4,51 +4,12 @@ set exrc secure
 "#		 plugins	  #
 "######################
 
-"vim-markdown
-autocmd BufNewFile,BufReadPost *.md set filetype=markdown
-
 "airline
 let g:airline_powerline_fonts = 1
-
-"devicons
-set encoding=utf8
-set guifont=Hack_Nerd_Font:h13
-
-"ultisnips
-let g:UltiSnipsSnippetDirectories=$HOME.'/.vim/pack/plugins/start/vim-snippets/UltiSnips'
-let g:UltiSnipsExpandTrigger = "<nop>"
-let g:ulti_expand_or_jump_res = 0
-
-function ExpandSnippetOrCarriageReturn()
-	let snippet = UltiSnips#ExpandSnippetOrJump()
-	if g:ulti_expand_or_jump_res > 0
-		return snippet
-	else
-		return "\<CR>"
-	endif
-endfunction
-
-inoremap <expr> <CR> pumvisible() ? "<C-R>=ExpandSnippetOrCarriageReturn()<CR>"
-	\ : "\<CR>"
-
-"YouCompleteMe
-set completeopt-=preview
-let g:ycm_python_binary_path = 'python'
-let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
 
 "ranger
 let g:ranger_open_new_tab = 1
 let g:ranger_map_keys = 0
-
-"CtrlP
-let g:ctrlp_map = '<Leader>ll'
-let g:ctrlp_cmd = 'CtrlPMixed'
-let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_root_markers = ['makefile']
-let g:ctrlp_prompt_mappings = {
-	\ 'AcceptSelection("e")': ['<c-t>'],
-	\ 'AcceptSelection("t")': ['<cr>'],
-	\ }
 
 "######################
 "#		 work		  #
@@ -56,22 +17,6 @@ let g:ctrlp_prompt_mappings = {
 
 set copyindent
 set clipboard=unnamed
-
-set laststatus=2
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
-
-let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': ['ruby',
-	\ 'python', 'puppet']}
-let g:syntastic_puppet_puppetlint_args = '--no-80chars-check
-	\ --no-140chars-check'
-let g:syntastic_yaml_checkers = ['yamllint']
-let g:syntastic_yaml_yamllint_args = '-c /Users/owiegers/Documents/yamllint.cfg'
 
 au BufRead,BufNewFile *.asm set filetype=nasm
 au BufRead,BufNewFile *.nix set filetype=yaml

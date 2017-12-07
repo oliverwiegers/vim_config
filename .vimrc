@@ -44,7 +44,7 @@ set t_Co=256
 colorscheme gruvbox
 set background=dark
 syntax on
-set number cursorline cursorcolumn
+set number
 
 "hilight tabs
 set list listchars=tab:\|·,trail:·
@@ -82,7 +82,6 @@ set splitbelow splitright
 "keymappings
 let mapleader = "\<Space>"
 inoremap jk <ESC>
-map <Leader><Space> :NERDTreeToggle<CR>
 map <Leader>f :Ranger<CR>
 map <S-u> :redo<CR>
 nnoremap <F2> :make!<cr>

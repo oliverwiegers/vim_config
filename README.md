@@ -10,6 +10,7 @@ on any system.
 - [nerdcommenter](https://github.com/scrooloose/nerdcommenter)
 - [airline](https://github.com/vim-airline/vim-airline)
 - [gruvbox](https://github.com/morhetz/gruvbox)
+- [incsearch](https://github.com/haya14busa/incsearch.vim)
 
 ## Look
 

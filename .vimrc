@@ -1,4 +1,3 @@
-"load local vimrc
 set exrc secure
 "######################
 "#		 plugins	  #
@@ -6,21 +5,6 @@ set exrc secure
 
 "airline
 let g:airline_powerline_fonts = 1
-
-"ranger
-let g:ranger_open_new_tab = 1
-let g:ranger_map_keys = 0
-
-"######################
-"#		 work		  #
-"######################
-
-set copyindent
-set clipboard=unnamed
-
-au BufRead,BufNewFile *.asm set filetype=nasm
-au BufRead,BufNewFile *.nix set filetype=yaml
-au BufRead,BufNewFile *.pp	set filetype=puppet
 
 "######################
 "#		 personal	  #
@@ -53,9 +37,6 @@ function ToggleVExplorer()
 	endif
 endfunction
 
-"writing
-set spell spelllang=en_us
-
 "general
 set backspace=indent,eol,start
 set nocompatible
@@ -65,19 +46,24 @@ filetype plugin indent on
 let &path.="/src/include"
 set lazyredraw
 set ttyfast
+set copyindent
+set clipboard=unnamed
 
-"colors
+"splitting
+set splitbelow splitright
+
+"look of vim
 set t_Co=256
 colorscheme gruvbox
 set background=dark
 syntax on
 set number
 
-"hilight tabs
+"hilight whitespaces
 set list listchars=tab:\|·,trail:·
 set autoindent smartindent
 
-"filetype detection
+"filetype detection and set shiftwidth
 function Set_sw(index, length)
 	if a:index<0
 		let sw=4
@@ -88,7 +74,7 @@ function Set_sw(index, length)
 	execute "set tabstop=".sw
 	execute "set softtabstop=".sw
 	execute "set shiftwidth=".sw
-	"is needed because NERDTREE will set modifiable off so everytime you open
+	"is needed because NERDTREE will set modifiable off so every time you open
 	"a new tab from NERDTREE an error ocours
 	set modifiable
 	if a:index==3
@@ -99,39 +85,44 @@ function Set_sw(index, length)
 	endif
 endfunction
 
+"call above function
 let blacklist = ['html', 'css', 'json', 'yaml', 'cpp']
-au BufRead,BufNewFile,BufNew *
-	\ call Set_sw(index(blacklist, &ft), len(blacklist))
-
-"splitting
-set splitbelow splitright
+augroup all
+	au BufRead,BufNewFile,BufNew *
+		\ call Set_sw(index(blacklist, &ft), len(blacklist))
+	au BufRead,BufNewFile,BufNew *.asm set filetype=nasm
+	au BufRead,BufNewFile,BufNew *.nix set filetype=yaml
+	au BufRead,BufNewFile,BufNew *.pp	set filetype=puppet
+augroup END
 
 "keymappings
 let mapleader = "\<Space>"
 inoremap jk <ESC>
-map <silent> <Leader>f :Ranger<CR>
-map <silent> <Leader><Space> :call ToggleVExplorer()<CR>
-map <S-u> :redo<CR>
-nnoremap <F2> :make!<cr>
-nnoremap <F3> :make! clean<cr>
-
-nnoremap gf <C-W>gf
-vnoremap gf <C-W>gf
+nnoremap <silent> <Leader><Space> :call ToggleVExplorer()<CR>
+nnoremap <silent> <S-u> :redo<CR>
 nnoremap <Leader>t :tabnew 
+
+"c development
+nnoremap <silent> <F2> :make!<cr>
+nnoremap <silent> <F3> :make! clean<cr>
+nnoremap <silent> gf <C-W>gf
+vnoremap <silent> gf <C-W>gf
 
 "save file as root
 cmap w!! w !sudo tee % >/dev/null
 
 "split navigation
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
-
-map <Leader>h :split<CR>
-map <Leader>v :vsplit<CR>
+nnoremap <silent> <C-J> <C-W><C-J>
+nnoremap <silent> <C-K> <C-W><C-K>
+nnoremap <silent> <C-L> <C-W><C-L>
+nnoremap <silent> <C-H> <C-W><C-H>
+nnoremap <silent> <Leader>h :split<CR>
+nnoremap <silent> <Leader>v :vsplit<CR>
 
 "incsearch
-map /  <Plug>(incsearch-forward)
-map ?  <Plug>(incsearch-backward)
-map g/ <Plug>(incsearch-stay)
+map  /	<Plug>(incsearch-forward)
+map  ?	<Plug>(incsearch-backward)
+map  g/ <Plug>(incsearch-stay)
+
+"writing
+nnoremap <silent> <Leader>s :setlocal spell! spelllang=en_us<CR>

@@ -1,6 +1,3 @@
-[submodule "pack/plugins/start/nerdcommenter"]
-	path = pack/plugins/start/nerdcommenter
-	url = https://github.com/scrooloose/nerdcommenter
 [submodule "pack/plugins/start/gruvbox"]
 	path = pack/plugins/start/gruvbox
 	url = https://github.com/morhetz/gruvbox.git

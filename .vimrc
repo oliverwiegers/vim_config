@@ -10,33 +10,6 @@ let g:airline_powerline_fonts = 1
 "#		 personal	  #
 "######################
 
-"netrw
-let g:netrw_banner = 0
-let g:netrw_liststyle = 3
-let g:netrw_browse_split = 3
-let g:netrw_altv = 1
-let g:netrw_winsize = 25
-
-" Toggle Vexplore
-function ToggleVExplorer()
-	if exists("t:expl_buf_num")
-		let expl_win_num = bufwinnr(t:expl_buf_num)
-		if expl_win_num != -1
-			let cur_win_nr = winnr()
-			exec expl_win_num . 'wincmd w'
-			close
-			exec cur_win_nr . 'wincmd w'
-			unlet t:expl_buf_num
-		else
-			unlet t:expl_buf_num
-		endif
-	else
-		exec '1wincmd w'
-		Vexplore
-		let t:expl_buf_num = bufnr("%")
-	endif
-endfunction
-
 "general
 set backspace=indent,eol,start
 set nocompatible
@@ -64,13 +37,12 @@ set list listchars=tab:\|·,trail:·
 set autoindent smartindent
 
 "filetype detection and set shiftwidth
-function Set_sw(index, length)
+function SetSw(index, length)
 	if a:index<0
 		let sw=4
 	elseif a:index>=0 && a:index<a:length
 		let sw=2
 	endif
-
 	execute "set tabstop=".sw
 	execute "set softtabstop=".sw
 	execute "set shiftwidth=".sw
@@ -89,11 +61,46 @@ endfunction
 let blacklist = ['html', 'css', 'json', 'yaml', 'cpp']
 augroup all
 	au BufRead,BufNewFile,BufNew *
-		\ call Set_sw(index(blacklist, &ft), len(blacklist))
+		\ call SetSw(index(blacklist, &ft), len(blacklist))
 	au BufRead,BufNewFile,BufNew *.asm set filetype=nasm
 	au BufRead,BufNewFile,BufNew *.nix set filetype=yaml
 	au BufRead,BufNewFile,BufNew *.pp	set filetype=puppet
 augroup END
+
+"commenting blocks of code, my native nerdcommenter replacement
+augroup comments
+	autocmd FileType c,cpp,java,scala let b:comment_leader = '//'
+	autocmd FileType sh,ruby,python,yaml let b:comment_leader = '#'
+	autocmd FileType conf,fstab let b:comment_leader = '#'
+	autocmd FileType vim let b:comment_leader = '"'
+augroup END
+
+"netrw, my native nerdtree replacement
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+let g:netrw_browse_split = 3
+let g:netrw_altv = 1
+let g:netrw_winsize = 25
+
+"toggle Vexplore
+function ToggleVExplorer()
+	if exists("t:expl_buf_num")
+		let expl_win_num = bufwinnr(t:expl_buf_num)
+		if expl_win_num != -1
+			let cur_win_nr = winnr()
+			exec expl_win_num . 'wincmd w'
+			close
+			exec cur_win_nr . 'wincmd w'
+			unlet t:expl_buf_num
+		else
+			unlet t:expl_buf_num
+		endif
+	else
+		exec '1wincmd w'
+		Vexplore
+		let t:expl_buf_num = bufnr("%")
+	endif
+endfunction
 
 "keymappings
 let mapleader = "\<Space>"
@@ -126,3 +133,12 @@ map  g/ <Plug>(incsearch-stay)
 
 "writing
 nnoremap <silent> <Leader>s :setlocal spell! spelllang=en_us<CR>
+
+"commenting
+noremap <silent> ,cc :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')
+	\<CR>/<CR>:nohlsearch<CR>
+noremap <silent> ,cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')
+	\<CR>//e<CR>:nohlsearch<CR>
+"######################
+"#		 testing	  #
+"######################

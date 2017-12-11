@@ -8,7 +8,6 @@ on any system.
 ## Installed Plugins
 
 - [nerdcommenter](https://github.com/scrooloose/nerdcommenter)
-- [ranger.vim](https://github.com/francoiscabrol/ranger.vim)
 - [airline](https://github.com/vim-airline/vim-airline)
 - [gruvbox](https://github.com/morhetz/gruvbox)
 

@@ -26,6 +26,33 @@ au BufRead,BufNewFile *.pp	set filetype=puppet
 "#		 personal	  #
 "######################
 
+"netrw
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+let g:netrw_browse_split = 3
+let g:netrw_altv = 1
+let g:netrw_winsize = 25
+
+" Toggle Vexplore
+function ToggleVExplorer()
+	if exists("t:expl_buf_num")
+		let expl_win_num = bufwinnr(t:expl_buf_num)
+		if expl_win_num != -1
+			let cur_win_nr = winnr()
+			exec expl_win_num . 'wincmd w'
+			close
+			exec cur_win_nr . 'wincmd w'
+			unlet t:expl_buf_num
+		else
+			unlet t:expl_buf_num
+		endif
+	else
+		exec '1wincmd w'
+		Vexplore
+		let t:expl_buf_num = bufnr("%")
+	endif
+endfunction
+
 "writing
 set spell spelllang=en_us
 
@@ -82,7 +109,8 @@ set splitbelow splitright
 "keymappings
 let mapleader = "\<Space>"
 inoremap jk <ESC>
-map <Leader>f :Ranger<CR>
+map <silent> <Leader>f :Ranger<CR>
+map <silent> <Leader><Space> :call ToggleVExplorer()<CR>
 map <S-u> :redo<CR>
 nnoremap <F2> :make!<cr>
 nnoremap <F3> :make! clean<cr>

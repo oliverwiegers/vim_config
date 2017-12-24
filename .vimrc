@@ -139,6 +139,26 @@ noremap <silent> ,cc :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')
 	\<CR>/<CR>:nohlsearch<CR>
 noremap <silent> ,cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')
 	\<CR>//e<CR>:nohlsearch<CR>
+
 "######################
 "#		 testing	  #
 "######################
+
+"serch/replace
+:nnoremap <Leader>c :%s/\<<C-r><C-w>\>//g<Left><Left>
+":nnoremap <Leader>c :set nohlsearch\|:call SubstituteAll()<CR>
+:nnoremap <Leader>s :set nohlsearch\|:call HighlightAll()<CR>
+
+function HighlightAll()
+	let l:item = expand("<cword>")
+	execute 'let @/ ="' . l:item .'"'
+	set hlsearch
+endfunction
+
+"function SubstituteAll()
+"	call HighlightAll()
+"	let item = expand("<cword>")
+"	let l:input = input('s/' . item . '/')
+"	substitut(s,item,input,g)
+"endfunction
+

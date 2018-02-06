@@ -5,6 +5,7 @@ set exrc secure
 "######################
 
 let g:airline#extensions#branch#enabled=1
+
 "######################
 "#		 personal	  #
 "######################

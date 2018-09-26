@@ -10,10 +10,17 @@ All used plugins are written in plain VimL and a little bash.
 ## Installed Plugins
 
 - [airline](https://github.com/vim-airline/vim-airline)
- - [vim-fugitive](https://github.com/tpope/vim-fugitive) (to show git branch)
- - [vim-aitrline-clock](https://github.com/enricobacis/vim-airline-clock)
 - [gruvbox](https://github.com/morhetz/gruvbox)
 - [incsearch](https://github.com/haya14busa/incsearch.vim)
+
+## Installation
+
+```
+$ cd $HOME
+$ git clone https://github.com/oliverwigers/vim_config .vim
+$ cd .vim
+$ stow vimrc
+```
 
 ## Look
 

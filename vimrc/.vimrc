@@ -6,33 +6,37 @@ set exrc secure
 "######################
 
 " Airline plugin settings.
-let g:airline_skip_empty_sections = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#formatter = 'unique_tail'
-let g:airline#extensions#branch#enabled=1
 let g:airline_powerline_fonts = 1
 
 "######################
 "#		 Personal	  #
 "######################
 
+" Configure Vim using system clipboard depending on OS.
+let os=substitute(system('uname'), '\n', '', '')
+if os == 'Darwin' || os == 'Mac'
+	set clipboard=unnamed
+elseif os == 'Linux'
+	set clipboard=unnamedplus
+endif
+
 " General settings.
 set ttyfast
+set iskeyword=_
 set hlsearch
 set wildmenu
+set expandtab
 set splitbelow
 set splitright
 set copyindent
-set autoindent 
+set autoindent
 set lazyredraw
 set smartindent
+set iskeyword=_
 set nocompatible
 set relativenumber
 set encoding=utf-8
-set clipboard=unnamed
 set complete+=d,kspell
-" Highlight whitespaces.
-set listchars=tab:\|·,trail:·
 set backspace=indent,eol,start
 
 " Set path to local working dir.
@@ -52,23 +56,20 @@ colorscheme gruvbox
 function! SetSw(index, length) "{{{
 	if a:index<0
 		let sw=4
-	elseif a:index>=0 && a:index<a:length
+	elseif a:index==5
+		let sw=4
+		set colorcolumn=81,101 textwidth=100
+	else
 		let sw=2
 	endif
 	set modifiable
 	execute "set tabstop=".sw
 	execute "set softtabstop=".sw
 	execute "set shiftwidth=".sw
-	if a:index==3
-		set expandtab colorcolumn=81 textwidth=80 | retab.sw | set list
-	else
-		set noexpandtab expandtab noexpandtab colorcolumn=81 textwidth=80 |
-			\ retab!sw | set list
-	endif
 endfunction "}}}
 
 " Used shiftwidth settings.
-let blacklist = ['html', 'css', 'json', 'yaml', 'cpp']
+let blacklist = ['html', 'css', 'json', 'yaml', 'cpp', 'rust']
 
 augroup types
 	au BufRead,BufNewFile,BufNew *

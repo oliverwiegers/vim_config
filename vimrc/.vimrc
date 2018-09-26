@@ -33,7 +33,9 @@ set autoindent
 set lazyredraw
 set smartindent
 set iskeyword=_
+set textwidth=80
 set nocompatible
+set colorcolumn=81
 set relativenumber
 set encoding=utf-8
 set complete+=d,kspell

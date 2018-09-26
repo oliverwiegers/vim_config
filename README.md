@@ -17,7 +17,7 @@ All used plugins are written in plain VimL and a little bash.
 
 ```
 $ cd $HOME
-$ git clone https://github.com/oliverwigers/vim_config .vim
+$ git clone --recursive https://github.com/oliverwigers/vim_config .vim
 $ cd .vim
 $ stow vimrc
 ```

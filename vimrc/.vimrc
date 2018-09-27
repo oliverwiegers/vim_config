@@ -41,6 +41,7 @@ set encoding=utf-8
 set complete+=d,kspell
 set backspace=indent,eol,start
 
+
 " Set path to local working dir.
 let &path = getcwd() . '/**'
 
@@ -53,6 +54,12 @@ filetype plugin indent on
 set t_Co=256
 set background=dark
 colorscheme gruvbox
+
+" Spellcheking related highlighting.
+" Needs to be loaded after theme otherwise the them will overrride highlighting
+" settings.
+hi clear SpellBad
+hi SpellBad cterm=underline
 
 " Filetype detection and set shiftwidth according to filetype.
 function! SetSw(index, length) "{{{
@@ -91,14 +98,6 @@ augroup END
 augroup K
 	autocmd FileType vim setlocal keywordprg=:help
 	autocmd FileType help setlocal keywordprg=:help
-augroup END
-
-augroup make_command
-	autocmd FileType python set makeprg=python\ -c\ \"import\ py_compile,sys;\
-				\ sys.stderr=sys.stdout;\ py_compile.compile(r'%')\"
-	autocmd FileType python set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\
-				\ %l%.%#,%Z%[%^\ ]%\\@=%m
-	autocmd FileType python set omnifunc=python3complete#Complete keywordprg=pydoc3
 augroup END
 
 " Netrw, my native nerdtree replacement.

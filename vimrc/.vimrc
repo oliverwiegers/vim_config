@@ -7,6 +7,7 @@ set exrc secure
 
 " Airline plugin settings.
 let g:airline_powerline_fonts = 1
+let g:airline_theme='badcat'
 
 "######################
 "#		 Personal	  #
@@ -22,6 +23,7 @@ endif
 
 " General settings.
 set ttyfast
+" Make underscore a word separator
 set iskeyword=_
 set hlsearch
 set wildmenu
@@ -32,11 +34,12 @@ set copyindent
 set autoindent
 set lazyredraw
 set smartindent
-set iskeyword=_
 set textwidth=80
 set nocompatible
 set colorcolumn=81
 set relativenumber
+" Force vim Vim <=v7 to treat every numeral as decimal even if prepended with 0
+set nrformats-=octal
 set encoding=utf-8
 set complete+=d,kspell
 set backspace=indent,eol,start
@@ -51,9 +54,8 @@ filetype on
 filetype plugin indent on
 
 " Color scheme settings.
-set t_Co=256
+"set t_Co=256
 set background=dark
-colorscheme gruvbox
 
 " Spellcheking related highlighting.
 " Needs to be loaded after theme otherwise the them will overrride highlighting
@@ -107,7 +109,6 @@ let g:netrw_browse_split = 3
 let g:netrw_altv = 1
 let g:netrw_winsize = 25
 
-
 " Toggle Vexplore / open netrw / open filebrowser.
 function! ToggleVExplorer() "{{{
 	if exists("t:expl_buf_num")
@@ -134,11 +135,6 @@ endfunction "}}}
 
 " Map leader key to space bar.
 let mapleader = "\<Space>"
-
-" Mapping ESC to jk.
-inoremap jk <ESC>
-vnoremap jk <ESC>
-cnoremap jk <ESC>
 
 " File navigation.
 nnoremap <silent> <Leader><Space> :call ToggleVExplorer()<CR>

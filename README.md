@@ -2,7 +2,7 @@
 
 Nothing to fancy just my vim config.
 
-Once I was trying to solve as nany problems without plugins and came up with 
+Once I was trying to solve as many problems without plugins and came up with 
 solutions replacing plugins like
 [Nerdcommenter](https://github.com/scrooloose/nerdcommenter). But at some point
 I noticed I was reinventing the wheel. It was a great journey and I learned alot

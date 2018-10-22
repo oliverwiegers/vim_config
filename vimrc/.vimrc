@@ -5,9 +5,18 @@ set exrc secure
 "#		 Plugins	  #
 "######################
 
-" Airline plugin settings.
+" Airline settings.
+let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
-let g:airline_theme='badcat'
+let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+let g:airline_theme='wal'
+" NERDtree settings.
+let NERDTreeShowHidden=1
+
+" CtrlP settings.
+let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_map = '<Tab><Tab>'
+let g:ctrlp_cmd = 'CtrlP'
 
 "######################
 "#		 Personal	  #
@@ -21,6 +30,7 @@ elseif os == 'Linux'
 	set clipboard=unnamedplus
 endif
 
+set hidden
 " General settings.
 set ttyfast
 " Make underscore a word separator
@@ -43,6 +53,7 @@ set nrformats-=octal
 set encoding=utf-8
 set complete+=d,kspell
 set backspace=indent,eol,start
+set tsr+=$HOME/.vim/thesaurus
 
 
 " Set path to local working dir.
@@ -56,6 +67,7 @@ filetype plugin indent on
 " Color scheme settings.
 "set t_Co=256
 set background=dark
+colorscheme wal
 
 " Spellcheking related highlighting.
 " Needs to be loaded after theme otherwise the them will overrride highlighting
@@ -102,42 +114,18 @@ augroup K
 	autocmd FileType help setlocal keywordprg=:help
 augroup END
 
-" Netrw, my native nerdtree replacement.
-let g:netrw_banner = 0
-let g:netrw_liststyle = 3
-let g:netrw_browse_split = 3
-let g:netrw_altv = 1
-let g:netrw_winsize = 25
-
-" Toggle Vexplore / open netrw / open filebrowser.
-function! ToggleVExplorer() "{{{
-	if exists("t:expl_buf_num")
-		let expl_win_num = bufwinnr(t:expl_buf_num)
-		if expl_win_num != -1
-			let cur_win_nr = winnr()
-			exec expl_win_num . 'wincmd w'
-			close
-			exec cur_win_nr . 'wincmd w'
-			unlet t:expl_buf_num
-		else
-			unlet t:expl_buf_num
-		endif
-	else
-		exec '1wincmd w'
-		Vexplore
-		let t:expl_buf_num = bufnr("%")
-	endif
-endfunction "}}}
-
 "######################
-"	  keymappings	  #
+"	  Keymappings	  #
 "######################
+
+" Writing keybindings.
+nnoremap <silent> <Leader>g :Goyo<CR>
 
 " Map leader key to space bar.
 let mapleader = "\<Space>"
 
 " File navigation.
-nnoremap <silent> <Leader><Space> :call ToggleVExplorer()<CR>
+nnoremap <silent> <Leader><Space> :NERDTreeToggle<CR>
 nnoremap <Leader>t :tabnew 
 nnoremap <Leader>f :find 
 

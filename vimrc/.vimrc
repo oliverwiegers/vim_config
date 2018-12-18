@@ -24,7 +24,9 @@ let g:ctrlp_cmd = 'CtrlP'
 
 " Configure Vim using system clipboard depending on OS.
 let os=substitute(system('uname'), '\n', '', '')
-if os == 'Darwin' || os == 'Mac' set clipboard=unnamed elseif os == 'Linux'
+if os == 'Darwin' || os == 'Mac' 
+    set clipboard=unnamed 
+elseif os == 'Linux'
 	set clipboard=unnamedplus
 endif
 

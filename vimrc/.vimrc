@@ -24,9 +24,7 @@ let g:ctrlp_cmd = 'CtrlP'
 
 " Configure Vim using system clipboard depending on OS.
 let os=substitute(system('uname'), '\n', '', '')
-if os == 'Darwin' || os == 'Mac'
-	set clipboard=unnamed
-elseif os == 'Linux'
+if os == 'Darwin' || os == 'Mac' set clipboard=unnamed elseif os == 'Linux'
 	set clipboard=unnamedplus
 endif
 
@@ -46,6 +44,8 @@ set lazyredraw
 set smartindent
 set textwidth=80
 set nocompatible
+" Get zsh aliases working from within vim
+set shell=zsh\ -i
 set colorcolumn=81
 set relativenumber
 " Force vim Vim <=v7 to treat every numeral as decimal even if prepended with 0

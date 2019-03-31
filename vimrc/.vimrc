@@ -10,6 +10,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 let g:airline_theme='wal'
+
 " NERDtree settings.
 let NERDTreeShowHidden=1
 
@@ -67,7 +68,6 @@ filetype on
 filetype plugin indent on
 
 " Color scheme settings.
-"set t_Co=256
 set background=dark
 colorscheme wal
 

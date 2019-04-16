@@ -48,7 +48,7 @@ set smartindent
 set textwidth=80
 set nocompatible
 " Get zsh aliases working from within vim
-set shell=zsh\ -i
+set shell=zsh
 set colorcolumn=81
 set relativenumber
 " Force vim Vim <=v7 to treat every numeral as decimal even if prepended with 0

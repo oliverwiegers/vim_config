@@ -19,6 +19,17 @@ let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_map = '<Tab><Tab>'
 let g:ctrlp_cmd = 'CtrlP'
 
+" Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_write = 1
+let g:syntastic_check_on_wq = 0
+
 "######################
 "#		 Personal	  #
 "######################

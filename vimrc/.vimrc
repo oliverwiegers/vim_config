@@ -105,7 +105,7 @@ function! SetSw(index, length) "{{{
 endfunction "}}}
 
 " Used shiftwidth settings.
-let blacklist = ['html', 'css', 'json', 'yaml', 'cpp', 'rust']
+let blacklist = ['html', 'css', 'json', 'yaml', 'cpp', 'rust', 'puppet', 'pp']
 
 augroup types
 	au BufRead,BufNewFile,BufNew *

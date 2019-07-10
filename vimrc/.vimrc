@@ -5,6 +5,9 @@ set exrc secure
 "#		 Plugins	  #
 "######################
 
+" Ale settings.
+let b:ale_fixers = ['prettier', 'eslint']
+
 " Airline settings.
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
@@ -118,7 +121,7 @@ augroup END
 "######################
 
 " Writing keybindings.
-nnoremap <silent> <Leader>g :Goyo<CR>
+nnoremap <Leader>g :Goyo<CR>
 
 " Map leader key to space bar.
 let mapleader = "\<Space>"
@@ -138,10 +141,6 @@ vnoremap <silent> gf <C-W>gf
 cmap w!! w !sudo tee % >/dev/null
 
 " Split navigation.
-"nnoremap <silent> <C-J> <C-W><C-J>
-"nnoremap <silent> <C-K> <C-W><C-K>
-"nnoremap <silent> <C-L> <C-W><C-L>
-"nnoremap <silent> <C-H> <C-W><C-H>
 nnoremap <silent> <Leader>h :split<CR>
 nnoremap <silent> <Leader>v :vsplit<CR>
 

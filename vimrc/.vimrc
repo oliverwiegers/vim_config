@@ -9,7 +9,7 @@ set exrc secure
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
-let g:airline_theme='wal'
+let g:airline_theme='dark_minimal'
 
 " NERDtree settings.
 let NERDTreeShowHidden=1
@@ -18,17 +18,6 @@ let NERDTreeShowHidden=1
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_map = '<Tab><Tab>'
 let g:ctrlp_cmd = 'CtrlP'
-
-" Syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_write = 1
-let g:syntastic_check_on_wq = 0
 
 "######################
 "#		 Personal	  #
@@ -42,10 +31,8 @@ elseif os == 'Linux'
 	set clipboard=unnamedplus
 endif
 
-set hidden
 " General settings.
 set ttyfast
-" Make underscore a word separator
 set iskeyword=_
 set hlsearch
 set wildmenu
@@ -80,7 +67,6 @@ filetype plugin indent on
 
 " Color scheme settings.
 set background=dark
-colorscheme wal
 
 " Spellcheking related highlighting.
 " Needs to be loaded after theme otherwise the them will overrride highlighting
@@ -152,10 +138,10 @@ vnoremap <silent> gf <C-W>gf
 cmap w!! w !sudo tee % >/dev/null
 
 " Split navigation.
-nnoremap <silent> <C-J> <C-W><C-J>
-nnoremap <silent> <C-K> <C-W><C-K>
-nnoremap <silent> <C-L> <C-W><C-L>
-nnoremap <silent> <C-H> <C-W><C-H>
+"nnoremap <silent> <C-J> <C-W><C-J>
+"nnoremap <silent> <C-K> <C-W><C-K>
+"nnoremap <silent> <C-L> <C-W><C-L>
+"nnoremap <silent> <C-H> <C-W><C-H>
 nnoremap <silent> <Leader>h :split<CR>
 nnoremap <silent> <Leader>v :vsplit<CR>
 

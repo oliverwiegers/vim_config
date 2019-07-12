@@ -28,3 +28,6 @@
 [submodule "pack/plugins/start/syntastic"]
 	path = pack/plugins/start/syntastic
 	url = https://github.com/vim-syntastic/syntastic.git
+[submodule "pack/plugins/start/vim-puppet"]
+	path = pack/plugins/start/vim-puppet
+	url = https://github.com/rodjek/vim-puppet.git

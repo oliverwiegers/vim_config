@@ -8,6 +8,9 @@ set exrc secure
 " Ale settings.
 let b:ale_fixers = ['prettier', 'eslint']
 
+highlight ALEWarning ctermbg=DarkMagenta
+highlight ALEEror ctermbg=DarkGray
+
 " Airline settings.
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
@@ -106,9 +109,9 @@ augroup END
 
 " Commenting blocks of code, my native nerdcommenter replacement.
 augroup comments
-	autocmd FileType c,cpp,java,scala let b:comment_leader = '//'
-	autocmd FileType conf,fstab,sh,ruby,python,yaml let b:comment_leader = '#'
-	autocmd FileType vim let b:comment_leader = '"'
+	autocmd FileType c,cpp,java,scala let b:comment_leader = '// '
+	autocmd FileType conf,fstab,sh,ruby,python,yaml let b:comment_leader = '# '
+	autocmd FileType vim let b:comment_leader = '" '
 augroup END
 
 augroup K

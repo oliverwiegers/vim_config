@@ -6,7 +6,7 @@ set exrc secure
 "######################
 
 " Ale settings.
-let b:ale_fixers = ['prettier', 'eslint']
+let b:ale_fixers = ['rubocop']
 
 highlight ALEWarning ctermbg=DarkMagenta
 highlight ALEEror ctermbg=DarkGray
@@ -97,7 +97,7 @@ function! SetSw(index, length) "{{{
 endfunction "}}}
 
 " Used shiftwidth settings.
-let blacklist = ['html', 'css', 'json', 'yaml', 'cpp', 'rust', 'puppet', 'pp']
+let blacklist = ['html', 'css', 'json', 'yaml', 'cpp', 'rust', 'puppet', 'pp', 'ruby']
 
 augroup types
 	au BufRead,BufNewFile,BufNew *

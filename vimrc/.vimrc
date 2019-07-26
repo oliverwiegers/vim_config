@@ -39,7 +39,6 @@ endif
 
 " General settings.
 set ttyfast
-set iskeyword=_
 set hlsearch
 set wildmenu
 set expandtab
@@ -61,6 +60,7 @@ set encoding=utf-8
 set complete+=d,kspell
 set backspace=indent,eol,start
 set tsr+=$HOME/.vim/thesaurus
+set iskeyword-=_
 
 
 " Set path to local working dir.

@@ -37,3 +37,6 @@ $ stow vimrc
 
 Currently using wal theme with colors from void linux wallpaper.
 ![Vim](screenshot.png "Vim screenshot")
+
+The configuration for polybar on top can be found at
+[oliverwiegers/dotfiles](https://github.com/oliverwiegers/dotfiles).

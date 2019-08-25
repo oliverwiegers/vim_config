@@ -1,15 +1,6 @@
 [submodule "pack/plugins/start/airline"]
 	path = pack/plugins/start/airline
 	url = https://github.com/vim-airline/vim-airline.git
-[submodule "pack/plugins/start/incsearch.vim"]
-	path = pack/plugins/start/incsearch.vim
-	url = https://github.com/haya14busa/incsearch.vim.git
-[submodule "pack/plugins/start/vim-airline-themes"]
-	path = pack/plugins/start/vim-airline-themes
-	url = https://github.com/vim-airline/vim-airline-themes.git
-[submodule "pack/plugins/start/goyo.vim"]
-	path = pack/plugins/start/goyo.vim
-	url = https://github.com/junegunn/goyo.vim.git
 [submodule "pack/plugins/start/nerdtree"]
 	path = pack/plugins/start/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
@@ -19,21 +10,12 @@
 [submodule "pack/plugins/start/vim-fugitive"]
 	path = pack/plugins/start/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git
-[submodule "pack/plugins/start/ctrlp.vim"]
-	path = pack/plugins/start/ctrlp.vim
-	url = https://github.com/ctrlpvim/ctrlp.vim.git
 [submodule "pack/plugins/start/ale"]
 	path = pack/plugins/start/ale
 	url = https://github.com/w0rp/ale.git
 [submodule "pack/plugins/start/syntastic"]
 	path = pack/plugins/start/syntastic
 	url = https://github.com/vim-syntastic/syntastic.git
-[submodule "pack/plugins/start/vim-puppet"]
-	path = pack/plugins/start/vim-puppet
-	url = https://github.com/rodjek/vim-puppet.git
-[submodule "pack/plugins/start/tabular"]
-	path = pack/plugins/start/tabular
-	url = https://github.com/godlygeek/tabular.git
-[submodule "pack/plugins/start/vim-ruby"]
-	path = pack/plugins/start/vim-ruby
-	url = https://github.com/vim-ruby/vim-ruby.git
+[submodule "pack/plugins/start/wal.vim"]
+	path = pack/plugins/start/wal.vim
+	url = https://github.com/dylanaraps/wal.vim.git

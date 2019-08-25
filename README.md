@@ -16,17 +16,12 @@ configuration possible.
 All used plugins are written in plain VimL and a little bash.
 
 ## Installed Plugins
-- [goyo](https://github.com/junegunn/goyo.vim)
+- [ale](https://github.com/w0rp/ale.git)
 - [wal.vim](https://github.com/dylanaraps/wal.vim)
-- [nerdtree](https://github.com/scrooloose/nerdtree.git)
 - [airline](https://github.com/vim-airline/vim-airline)
-- [incsearch](https://github.com/haya14busa/incsearch.vim)
-- [vim-gitgutter](https://github.com/airblade/vim-gitgutter)
+- [nerdtree](https://github.com/scrooloose/nerdtree.git)
 - [vim-devicons](https://github.com/ryanoasis/vim-devicons.git)
 - [vim-fugitive](https://github.com/tpope/vim-fugitive.git)
-- [vim-virtualenv](https://github.com/plytophogy/vim-virtualenv.git)
-- [ctrlp.vim](https://github.com/ctrlpvim/ctrlp.vim.git)
-- [ale](https://github.com/w0rp/ale.git)
 
 
 ## Installation
@@ -40,4 +35,5 @@ $ stow vimrc
 
 ## Look
 
-![Vim](screenshot.png)
+Currently using wal theme with colors from void linux wallpaper.
+![Vim](screenshot.png "Vim screenshot")

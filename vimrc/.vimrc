@@ -17,11 +17,21 @@ set exrc secure
 "  / .___/_/\__,_/\__, /_/_/ /_/____/  
 " /_/            /____/                
 
-" Ale settings.
-let b:ale_fixers = ['rubocop', 'shellcheck']
+" A.L.E. settings.
+let g:ale_completion_enabled = 1
+let g:ale_sign_error = "✗"
+let g:ale_sign_warning = "⚠"
+let b:ale_fixers = ['rubocop', 'shellcheck', 'rustfmt']
 
-highlight ALEWarning ctermbg=DarkMagenta
-highlight ALEEror ctermbg=DarkGray
+"A.L.E. Rust Settings
+let g:ale_linters = {'rust': ['rls']}
+let g:ale_rust_rls_executable = $HOME . '/.cargo/bin/rls'
+let g:ale_rust_rls_toolchain = 'stable'
+
+highlight ALEWarning ctermbg=DarkMagenta ctermfg=black
+highlight ALEError ctermbg=DarkGray ctermfg=Black
+highlight ALEErrorSign ctermbg=Blue ctermfg=Black
+highlight ALEWarningSign ctermbg=Green ctermfg=Black
 
 " Airline settings.
 let g:airline#extensions#tabline#enabled = 1

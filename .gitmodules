@@ -19,3 +19,9 @@
 [submodule "pack/plugins/start/wal.vim"]
 	path = pack/plugins/start/wal.vim
 	url = https://github.com/dylanaraps/wal.vim.git
+[submodule "pack/plugins/start/vim-racer"]
+	path = pack/plugins/start/vim-racer
+	url = https://github.com/racer-rust/vim-racer.git
+[submodule "pack/plugins/start/rust.vim"]
+	path = pack/plugins/start/rust.vim
+	url = https://github.com/rust-lang/rust.vim.git

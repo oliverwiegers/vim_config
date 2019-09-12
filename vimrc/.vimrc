@@ -153,8 +153,8 @@ nnoremap <Leader>t :tabnew
 nnoremap <Leader>f :find 
 
 " Usefull mappings for writing code.
-nnoremap <silent> <F2> :make!<cr>
-nnoremap <silent> <F3> :make! clean<cr>
+nnoremap <silent> <leader>m :make!<cr>
+nnoremap <silent> <leader>mc :make! clean<cr>
 nnoremap <silent> gf <C-W>gf
 vnoremap <silent> gf <C-W>gf
 

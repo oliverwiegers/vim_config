@@ -137,6 +137,15 @@ function! SetZshFiletype() "{{{
     endif
 endfunction "}}}
 
+function! Make() "{{{
+    execute ':w'
+    execute ':make!'
+endfunction "}}}
+
+function! MakeClean() "{{{
+    execute ':w'
+    execute ':make! clean'
+endfunction "}}}
 "     __                                          _                 
 "    / /_____  __  ______ ___  ____ _____  ____  (_)___  ____ ______
 "   / //_/ _ \/ / / / __ `__ \/ __ `/ __ \/ __ \/ / __ \/ __ `/ ___/
@@ -153,8 +162,8 @@ nnoremap <Leader>t :tabnew
 nnoremap <Leader>f :find 
 
 " Usefull mappings for writing code.
-nnoremap <silent> <leader>m :make!<cr>
-nnoremap <silent> <leader>mc :make! clean<cr>
+nnoremap <silent> <leader>m :call Make()<cr>
+nnoremap <silent> <leader>mc :call MakeClean()<cr>
 nnoremap <silent> gf <C-W>gf
 vnoremap <silent> gf <C-W>gf
 

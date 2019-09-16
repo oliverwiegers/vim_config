@@ -61,9 +61,10 @@ set copyindent
 set autoindent
 set lazyredraw
 set smartindent
-set iskeyword-=_
 set textwidth=80
 set nocompatible
+" needs to be after nocompatible
+set iskeyword-=_
 set colorcolumn=81
 set encoding=utf-8
 set relativenumber

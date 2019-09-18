@@ -67,7 +67,7 @@ set nocompatible
 set iskeyword-=_
 set colorcolumn=81
 set encoding=utf-8
-set relativenumber
+set relativenumber nu
 set nrformats-=octal
 set complete+=d,kspell
 set backspace=indent,eol,start

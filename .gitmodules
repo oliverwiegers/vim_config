@@ -25,3 +25,6 @@
 [submodule "pack/plugins/start/rust.vim"]
 	path = pack/plugins/start/rust.vim
 	url = https://github.com/rust-lang/rust.vim.git
+[submodule "pack/plugins/start/rcshell.vim"]
+	path = pack/plugins/start/rcshell.vim
+	url = https://github.com/vim-scripts/rcshell.vim.git

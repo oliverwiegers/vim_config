@@ -42,6 +42,12 @@ let g:airline_theme='wal'
 " NERDtree settings.
 let NERDTreeShowHidden=1
 
+" FZF settings.
+let g:fzf_buffers_jump = 1
+let g:fzf_tags_command = 'ctags -R'
+let g:fzf_layout = { 'window': 'enew' }
+let g:fzf_commits_log_options = '--color=always --pretty=format:"%C(auto)%h %<(18)%an %d %s %C(green)%cr"'
+
 "               __  __  _                 
 "    ________  / /_/ /_(_)___  ____ ______
 "   / ___/ _ \/ __/ __/ / __ \/ __ `/ ___/
@@ -163,7 +169,7 @@ nnoremap <silent> <Leader>y "+y
 nnoremap <silent> <Leader>p o<ESC>"+p
 " File navigation.
 nnoremap <silent> <Leader><Space> :NERDTreeToggle<CR>
-nnoremap <Leader>t :tabnew 
+nnoremap <Leader>o :tabnew 
 nnoremap <Leader>f :find 
 
 " Usefull mappings for writing code.
@@ -195,6 +201,14 @@ nnoremap <silent> <S-u> :redo<CR>
 " Search/replace.
 nnoremap <Leader>c :%s/\<<C-r><C-w>\>//g<Left><Left>
 nnoremap <silent> <Leader>u :let @/=''<CR>
+
+" FZF commands.
+nnoremap <tab><tab> :Files<CR>
+nnoremap <leader><tab> :Rg<CR>
+nnoremap <leader>gc :Commits<CR>
+
+" Open terminal in vsplit.
+nnoremap <leader>t :vsplit<cr>:term ++curwin<CR>
 
 "                                                   __    
 "   _________  ____ ___  ____ ___  ____ _____  ____/ /____

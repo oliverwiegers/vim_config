@@ -57,26 +57,47 @@ let g:fzf_commits_log_options = '--color=always --pretty=format:"%C(auto)%h %<(1
 
 " General settings.
 set ttyfast
-set hlsearch
-set wildmenu
-set expandtab
-set shell=zsh
 set splitbelow
 set splitright
 set copyindent
 set autoindent
 set lazyredraw
 set smartindent
-set textwidth=80
 set nocompatible
-" needs to be after nocompatible
-set iskeyword-=_
-set colorcolumn=81
 set encoding=utf-8
 set relativenumber nu
-set nrformats-=octal
-set complete+=d,kspell
 set backspace=indent,eol,start
+
+" Highlight search results.
+set hlsearch
+
+" Enable wildmenu == show tab completion results.
+set wildmenu
+
+" Expand tabs to spaces
+set expandtab
+
+" Use zsh as vim shell.
+set shell=zsh
+
+" Set filewidth.
+set textwidth=80
+set colorcolumn=81
+
+" needs to be after nocompatible
+set iskeyword-=_
+
+" Make Ctrl-a and Ctrl-x working with Base-10 numbers.
+set nrformats-=octal
+
+" Spellcheckin.
+set complete+=d,kspell
+
+" Enable persistent undo
+set undodir=~/.vim/undodir
+set undofile
+set undolevels=1000
+set undoreload=10000
 
 " Set path to local working dir.
 let &path = getcwd() . '/**'
@@ -95,11 +116,9 @@ set background=dark
 hi clear SpellBad
 hi SpellBad cterm=underline
 
-
 " Used shiftwidth settings.
 let blacklist =
         \ ['html', 'css', 'json', 'yaml', 'cpp', 'rust', 'puppet', 'pp', 'ruby']
-
 augroup types
 	au BufRead,BufNewFile,BufNew *
 		\ call SetSw(index(blacklist, &ft), len(blacklist))
@@ -144,15 +163,36 @@ function! SetZshFiletype() "{{{
     endif
 endfunction "}}}
 
+" Execute make.
 function! Make() "{{{
     execute ':w'
     execute ':make!'
 endfunction "}}}
 
+" Execute make clean.
 function! MakeClean() "{{{
     execute ':w'
     execute ':make! clean'
 endfunction "}}}
+
+" Save current sessoin as $HOME/.vim/sessions/session-201911241740.vim
+function! SaveCurrentSession() "{{{
+    let path = $HOME . "/.vim/sessions/"
+    let session_name = "session" . strftime("-%Y%m%d%H%M%S.vim")"
+    let session = path . session_name
+    let latest = path . "latest"
+    execute "mksession " . session
+    execute "!if [ -L " . latest . " ]; then rm " . latest . ";fi"
+    execute "!ln -s " . session . " " . latest
+endfunction "}}}
+
+" Load latest session.
+function! LoadLatestSession() "{{{
+    let path = $HOME . "/.vim/sessions/"
+    let latest = path . "latest"
+    execute "source " . latest
+endfunction "}}}
+
 "     __                                          _                 
 "    / /_____  __  ______ ___  ____ _____  ____  (_)___  ____ ______
 "   / //_/ _ \/ / / / __ `__ \/ __ `/ __ \/ __ \/ / __ \/ __ `/ ___/
@@ -186,8 +226,8 @@ nnoremap <silent> <Leader>h :split<CR>
 nnoremap <silent> <Leader>v :vsplit<CR>
 
 " Tab navigation.
+nnoremap <silent> <Leader>j :tabnext<CR>
 nnoremap <silent> <Leader>k :tabprevious<CR>
-nnoremap <silent> <Leader>j :tabprevious<CR>
 
 " Spell checking for non code writing.
 nnoremap <silent> <Leader>s :setlocal spell! spelllang=en_us<CR>
@@ -209,6 +249,10 @@ nnoremap <leader>gc :Commits<CR>
 
 " Open terminal in vsplit.
 nnoremap <leader>t :vsplit<cr>:term ++curwin<CR>
+
+" Session management.
+nnoremap <silent> <leader>ss :call SaveCurrentSession()<CR>
+nnoremap <silent> <leader>ls :call LoadLatestSession()<CR>
 
 "                                                   __    
 "   _________  ____ ___  ____ ___  ____ _____  ____/ /____

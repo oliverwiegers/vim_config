@@ -1,3 +1,5 @@
 .gitconfig
 .netrwhist
 pack/plugins/opt/
+undodir/
+sessions/

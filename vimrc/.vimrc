@@ -226,8 +226,8 @@ nnoremap <silent> <Leader>h :split<CR>
 nnoremap <silent> <Leader>v :vsplit<CR>
 
 " Tab navigation.
-nnoremap <silent> <Leader>j :tabnext<CR>
-nnoremap <silent> <Leader>k :tabprevious<CR>
+nnoremap <silent> <Leader>k :tabnext<CR>
+nnoremap <silent> <Leader>j :tabprevious<CR>
 
 " Spell checking for non code writing.
 nnoremap <silent> <Leader>s :setlocal spell! spelllang=en_us<CR>

@@ -248,10 +248,15 @@ endfunction "}}}
 " Map leader key to space bar.
 let mapleader = "\<Space>"
 
+" A.L.E keybindings.
+nmap <silent> <leader>an :ALENext<cr>
+nmap <silent> <leader>ap :ALEPrevious<cr>
+
 " Xclipboard yank and put.
 nnoremap <silent> <Leader>yy "+yy
 nnoremap <silent> <Leader>y "+y
 nnoremap <silent> <Leader>p o<ESC>"+p
+
 " File navigation.
 nnoremap <silent> <Leader><Space> :NERDTreeToggle<CR>
 nnoremap <Leader>o :tabnew

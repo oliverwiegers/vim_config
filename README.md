@@ -13,16 +13,18 @@ all the goal is the same, keep this configuration as portable as possible. When
 I was working on an Android tablet using Termux I started using the most minimal
 configuration possible.
 
-All used plugins are written in plain VimL and a little bash.
-
 ## Installed Plugins
+
 - [ale](https://github.com/w0rp/ale.git)
+- [fzf.vim](https://github.com/junegunn/fzf.vim)
 - [wal.vim](https://github.com/dylanaraps/wal.vim)
 - [airline](https://github.com/vim-airline/vim-airline)
 - [nerdtree](https://github.com/scrooloose/nerdtree.git)
+- [rust.vim](https://github.com/rust-lang/rust.vim)
+- [vim-racer](https://github.com/racer-rust/vim-racer)
+- [rcshell.vim](https://github.com/vim-scripts/rcshell.vim)
 - [vim-devicons](https://github.com/ryanoasis/vim-devicons.git)
 - [vim-fugitive](https://github.com/tpope/vim-fugitive.git)
-
 
 ## Installation
 

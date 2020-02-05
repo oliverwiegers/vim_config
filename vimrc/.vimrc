@@ -107,6 +107,15 @@ set undofile
 set undolevels=1000
 set undoreload=10000
 
+" Set cursorline
+set cursorline
+hi CursorLine cterm=NONE ctermbg=234 ctermfg=NONE
+hi CursorLineNr ctermbg=234 ctermfg=Red cterm=bold
+
+" Set cursorcolumn.
+set cursorcolumn
+hi CursorColumn cterm=NONE ctermbg=234 ctermfg=NONE
+
 " Set path to local working dir.
 let &path = getcwd() . '/**'
 
@@ -159,30 +168,11 @@ augroup highlighting_tabs
         \ else | set listchars=tab:\|\•,trail:• | endif
 augroup END
 
-" Used by function ExecuteRetab.
-let tab_blacklist = ['yaml']
-augroup execute_retab
-    au BufRead,BufNewFile,BufNew *
-        \ call ExecuteRetab(tab_blacklist)
-    "au BufRead,BufNewFile,BufNew * set noexpandtab | retab!
-    au BufWritePre * set expandtab | retab
-augroup END
-
 "     ____                 __  _
 "    / __/_  ______  _____/ /_(_)___  ____  _____
 "   / /_/ / / / __ \/ ___/ __/ / __ \/ __ \/ ___/
 "  / __/ /_/ / / / / /__/ /_/ / /_/ / / / (__  )
 " /_/  \__,_/_/ /_/\___/\__/_/\____/_/ /_/____/
-
-" Highlight tab characters in specific files.
-function! ExecuteRetab(tab_blacklist) "{{{
-    let index = index(a:tab_blacklist, &ft)
-    if index<0
-        set noexpandtab | retab!
-    else
-        set expandtab | retab
-    endif
-endfunction "}}}
 
 " Filetype detection and set shiftwidth according to filetype.
 function! SetSw(blacklist) "{{{

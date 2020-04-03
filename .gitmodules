@@ -31,3 +31,6 @@
 [submodule "pack/plugins/start/fzf.vim"]
 	path = pack/plugins/start/fzf.vim
 	url = https://github.com/junegunn/fzf.vim.git
+[submodule "pack/plugins/start/goyo.vim"]
+	path = pack/plugins/start/goyo.vim
+	url = https://github.com/junegunn/goyo.vim.git

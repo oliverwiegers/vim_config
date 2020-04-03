@@ -148,8 +148,6 @@ let blacklist =
 augroup types
     au BufRead,BufNewFile,BufNew *
         \ call SetSw(blacklist)
-    au BufRead,BufNewFile,BufNew *
-        \ call SetZshFiletype()
     au BufRead,BufNewFile,BufNew *.asm set filetype=nasm
     au BufRead,BufNewFile,BufNew *.nix set filetype=yaml
     au BufRead,BufNewFile,BufNew *.pp  set filetype=puppet
@@ -189,13 +187,6 @@ function! SetSw(blacklist) "{{{
     execute "set tabstop=".sw
     execute "set softtabstop=".sw
     execute "set shiftwidth=".sw
-endfunction "}}}
-
-" Set filetype of zsh config files to sh.
-function! SetZshFiletype() "{{{
-    if &filetype ==# 'zsh'
-        set filetype=sh
-    endif
 endfunction "}}}
 
 " Execute make.
@@ -293,6 +284,9 @@ nnoremap <leader>t :vsplit<cr>:term ++curwin<CR>
 " Session management.
 nnoremap <silent> <leader>ss :call SaveCurrentSession()<CR>
 nnoremap <silent> <leader>ls :call LoadLatestSession()<CR>
+
+" Goyo writing plugin
+nnoremap  <silent> <Leader>ga :Goyo<CR>
 
 "                                                   __
 "   _________  ____ ___  ____ ___  ____ _____  ____/ /____

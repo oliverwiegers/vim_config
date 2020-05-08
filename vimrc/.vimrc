@@ -47,8 +47,11 @@ let NERDTreeShowHidden=1
 " FZF settings.
 let g:fzf_buffers_jump = 1
 let g:fzf_tags_command = 'ctags -R'
-let g:fzf_layout = { 'window': 'enew' }
-let g:fzf_commits_log_options = '--color=always --pretty=format:"%C(auto)%h %<(18)%an %d %s %C(green)%cr"'
+let g:fzf_layout = { "window": "silent botright 16split enew" }
+let g:fzf_commits_log_options = '--color=always --pretty=format:"%C(auto)%h %<(19)%an %d %s %C(green)%cr"'
+let $FZF_DEFAULT_COMMAND = "rg --hidden --files"
+
+
 
 "               __  __  _
 "    ________  / /_/ /_(_)___  ____ ______
@@ -143,7 +146,8 @@ hi SpellBad cterm=underline
 
 " Used shiftwidth settings.
 let blacklist =
-        \ ['html', 'css', 'json', 'yaml', 'cpp', 'rust', 'puppet', 'pp', 'ruby']
+        \ ['html', 'css', 'json', 'yaml', 'cpp', 'rust',
+        \ 'puppet', 'pp', 'ruby', 'eruby']
 
 augroup types
     au BufRead,BufNewFile,BufNew *
@@ -279,7 +283,7 @@ nnoremap <leader><tab> :Rg<CR>
 nnoremap <leader>gc :Commits<CR>
 
 " Open terminal in vsplit.
-nnoremap <leader>t :vsplit<cr>:term ++curwin<CR>
+nnoremap <leader>t :term ++rows=20<CR>
 
 " Session management.
 nnoremap <silent> <leader>ss :call SaveCurrentSession()<CR>

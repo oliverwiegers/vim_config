@@ -1,5 +1,3 @@
-"#########################################################
-"#        _    __   ____   __  ___   ____     ______     #
 "#       | |  / /  /  _/  /  |/  /  / __ \   / ____/     #
 "#       | | / /   / /   / /|_/ /  / /_/ /  / /          #
 "#     _ | |/ /  _/ /   / /  / /  / _, _/  / /___        #
@@ -50,8 +48,6 @@ let g:fzf_tags_command = 'ctags -R'
 let g:fzf_layout = { "window": "silent botright 16split enew" }
 let g:fzf_commits_log_options = '--color=always --pretty=format:"%C(auto)%h %<(19)%an %d %s %C(green)%cr"'
 let $FZF_DEFAULT_COMMAND = "rg --hidden --files"
-
-
 
 "               __  __  _
 "    ________  / /_/ /_(_)___  ____ ______
@@ -132,8 +128,6 @@ set background=dark
 
 " Show tabs and line breaks in visual mode. Further reading in following
 " augoups.
-set list
-let &showbreak='↳ '
 set cpoptions-=n
 hi NonText ctermfg=DarkGray
 hi SpecialKey ctermfg=DarkGray
@@ -158,16 +152,12 @@ augroup types
 augroup END
 
 augroup keywords
-    autocmd FileType vim setlocal keywordprg=:help
-    autocmd FileType help setlocal keywordprg=:help
+    au FileType vim setlocal keywordprg=:help
+    au FileType help setlocal keywordprg=:help
 augroup END
 
-" Needs to be after setting tabstop
-augroup highlighting_tabs
-    au!
-    au CursorMoved * if mode() =~# "[vV\<C-v>]" |
-        \ set listchars=nbsp:␣,eol:↲,tab:»\ ,extends:›,precedes:‹,trail:• |
-        \ else | set listchars=tab:\|\•,trail:• | endif
+augroup keywords
+    au BufWrite * set expandtab | retab
 augroup END
 
 "     ____                 __  _
@@ -268,7 +258,7 @@ nnoremap <silent> <Leader>j :tabprevious<CR>
 nnoremap <silent> <Leader>s :setlocal spell! spelllang=en_us<CR>
 
 " Reload config on the fly.
-nnoremap  <silent> <Leader>r :source $MYVIMRC<CR>
+nnoremap <silent> <Leader>s :source $MYVIMRC<CR>
 
 " Mapping redo command to U.
 nnoremap <silent> <S-u> :redo<CR>
@@ -283,7 +273,9 @@ nnoremap <leader><tab> :Rg<CR>
 nnoremap <leader>gc :Commits<CR>
 
 " Open terminal in vsplit.
-nnoremap <leader>t :term ++rows=20<CR>
+nnoremap <silent> <leader>t :term ++rows=20<CR>
+
+nnoremap <silent> <Leader>r :term ++rows=20 ++close ranger<CR>
 
 " Session management.
 nnoremap <silent> <leader>ss :call SaveCurrentSession()<CR>

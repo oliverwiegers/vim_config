@@ -154,10 +154,11 @@ augroup END
 augroup keywords
     au FileType vim setlocal keywordprg=:help
     au FileType help setlocal keywordprg=:help
+    au FileType make setlocal noexpandtab
 augroup END
 
 augroup keywords
-    au BufWrite * set expandtab | retab
+    au BufWrite * retab
 augroup END
 
 "     ____                 __  _

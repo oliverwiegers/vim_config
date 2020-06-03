@@ -49,6 +49,12 @@ let g:fzf_layout = { "window": "silent botright 16split enew" }
 let g:fzf_commits_log_options = '--color=always --pretty=format:"%C(auto)%h %<(19)%an %d %s %C(green)%cr"'
 let $FZF_DEFAULT_COMMAND = "rg --hidden --files"
 
+" YCM
+" let g:ycm_confirm_extra_conf    = 0
+" let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
+" let g:ycm_extra_conf_vim_data   = ['&filetype']
+" let g:ycm_seed_identifiers_with_syntax = 1
+
 "               __  __  _
 "    ________  / /_/ /_(_)___  ____ ______
 "   / ___/ _ \/ __/ __/ / __ \/ __ `/ ___/
@@ -270,6 +276,7 @@ nnoremap <silent> <Leader>u :let @/=''<CR>
 
 " FZF commands.
 nnoremap <tab><tab> :Files<CR>
+nnoremap <leader>b :Buffers<CR>
 nnoremap <leader><tab> :Rg<CR>
 nnoremap <leader>gc :Commits<CR>
 
@@ -284,6 +291,12 @@ nnoremap <silent> <leader>ls :call LoadLatestSession()<CR>
 
 " Goyo writing plugin
 nnoremap  <silent> <Leader>ga :Goyo<CR>
+
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 
 "                                                   __
 "   _________  ____ ___  ____ ___  ____ _____  ____/ /____

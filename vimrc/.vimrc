@@ -34,9 +34,6 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 let g:airline_theme='wal'
 
-" NERDtree settings.
-let NERDTreeShowHidden=1
-
 " FZF settings.
 if executable('fzf')
     if executable('rg')
@@ -118,6 +115,7 @@ set nocompatible
 
 " Don't split lines.
 set nowrap
+
 " Give more space for displaying messages.
 set cmdheight=2
 
@@ -187,6 +185,13 @@ filetype plugin indent on
 " Color scheme settings.
 set background=dark
 
+" Set netrw settings.
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+let g:netrw_browse_split = 4
+let g:netrw_altv = 1
+let g:netrw_winsize = 25
+
 " Spellcheking related highlighting.
 " Needs to be loaded after theme otherwise the them will overrride highlighting
 " settings.
@@ -254,6 +259,26 @@ function! LoadLatestSession() "{{{
     execute "source " . latest
 endfunction "}}}
 
+" Toggle Vexplore with.
+function! ToggleVExplorer()
+  if exists("t:expl_buf_num")
+      let expl_win_num = bufwinnr(t:expl_buf_num)
+      if expl_win_num != -1
+          let cur_win_nr = winnr()
+          exec expl_win_num . 'wincmd w'
+          close
+          exec cur_win_nr . 'wincmd w'
+          unlet t:expl_buf_num
+      else
+          unlet t:expl_buf_num
+      endif
+  else
+      exec '1wincmd w'
+      Vexplore
+      let t:expl_buf_num = bufnr("%")
+  endif
+endfunction
+
 "     __                                          _
 "    / /_____  __  ______ ___  ____ _____  ____  (_)___  ____ ______
 "   / //_/ _ \/ / / / __ `__ \/ __ `/ __ \/ __ \/ / __ \/ __ `/ ___/
@@ -269,7 +294,7 @@ nmap <silent> <leader>an :ALENext<cr>
 nmap <silent> <leader>ap :ALEPrevious<cr>
 
 " File navigation.
-nnoremap <silent> <Leader><Space> :NERDTreeToggle<CR>
+nnoremap <silent> <Leader><Space> :call ToggleVExplorer()<CR>
 
 " Usefull mappings for writing code.
 nnoremap <silent> gf <C-W>gf

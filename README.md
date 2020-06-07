@@ -16,7 +16,7 @@ In the end I started using plugins again.
 - [fzf.vim](https://github.com/junegunn/fzf.vim)
 - [wal.vim](https://github.com/dylanaraps/wal.vim)
 - [airline](https://github.com/vim-airline/vim-airline)
-- [nerdtree](https://github.com/scrooloose/nerdtree.git)
+- [coc.nvim](https://github.com/neoclide/coc.nvim)
 - [rust.vim](https://github.com/rust-lang/rust.vim)
 - [goyo.vim](https://github.com/junegunn/goyo.vim)
 - [vim-rails](https://github.com/tpope/vim-rails)
@@ -27,7 +27,7 @@ In the end I started using plugins again.
 - [vim-devicons](https://github.com/ryanoasis/vim-devicons.git)
 - [vim-fugitive](https://github.com/tpope/vim-fugitive.git)
 - [vim-capslock](https://github.com/tpope/vim-capslock)
-- [YouCompleteMe](https://github.com/ycm-core/YouCompleteMe)
+
 ## Installation
 
 ```
@@ -40,6 +40,7 @@ $ stow vimrc
 ## Look
 
 Currently using wal theme with colors from void linux wallpaper.
+
 ![Vim](screenshot.png "Vim screenshot")
 
 The configuration for polybar on top can be found at

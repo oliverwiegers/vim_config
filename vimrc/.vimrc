@@ -19,20 +19,15 @@ set exrc secure
 
 " A.L.E. settings.
 let g:ale_completion_enabled = 1
-let g:ale_sign_error = "✗"
-let g:ale_sign_warning = "⚠"
+let g:ale_sign_error = '✗'
+let g:ale_sign_warning = '⚠'
 let g:ale_yaml_yamllint_options='-d "{extends: default, rules: {line-length: false, document-start: disable}}"'
-
-hi ALEWarning ctermbg=DarkMagenta ctermfg=black
-hi ALEError ctermbg=DarkGray ctermfg=Black
-hi ALEErrorSign ctermbg=Blue ctermfg=Black
-hi ALEWarningSign ctermbg=Green ctermfg=Black
 
 " Airline settings.
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
-let g:airline_theme='wal'
+let g:airline_theme='gruvbox'
 
 " FZF settings.
 if executable('fzf')
@@ -54,7 +49,7 @@ if executable('fzf')
     
       function! s:files(dir)
         let l:cmd = $FZF_DEFAULT_COMMAND
-        if a:dir != ''
+        if a:dir !=# ''
           let l:cmd .= ' ' . shellescape(a:dir)
         endif
         let l:files = split(system(l:cmd), '\n')
@@ -96,6 +91,33 @@ else
     echo 'Please install fzf.'
 endif
 
+" Startify.
+function! StartifyEntryFormat()
+    return 'WebDevIconsGetFileTypeSymbol(absolute_path) ." ". entry_path'
+endfunction
+
+let g:startify_enable_special      = 0
+let g:startify_files_number        = 8
+let g:startify_relative_path       = 1
+let g:startify_change_to_dir       = 1
+let g:startify_update_oldfiles     = 1
+let g:startify_session_autoload    = 1
+let g:startify_session_persistence = 1
+
+let g:startify_skiplist = [
+        \ 'COMMIT_EDITMSG',
+        \ 'bundle/.*/doc',
+        \ '/data/repo/neovim/runtime/doc',
+        \ '/Users/mhi/local/vim/share/vim/vim74/doc',
+        \ ]
+
+let g:startify_bookmarks = [
+        \ { 'c': '~/.vimrc' },
+        \ ]
+
+let g:startify_custom_footer =
+       \ ['', "   Vim is charityware. Please read ':help uganda'.", '']
+
 "               __  __  _
 "    ________  / /_/ /_(_)___  ____ ______
 "   / ___/ _ \/ __/ __/ / __ \/ __ `/ ___/
@@ -111,10 +133,7 @@ set copyindent
 set autoindent
 set lazyredraw
 set smartindent
-set nocompatible
-
-" Don't split lines.
-set nowrap
+"set nocompatible
 
 " Give more space for displaying messages.
 set cmdheight=2
@@ -124,6 +143,7 @@ set hidden
 
 " Set encoding.
 set encoding=utf-8
+scriptencoding utf-8
 
 " Show linenumbers and current line relative.
 set relativenumber nu
@@ -167,12 +187,9 @@ set undoreload=10000
 
 " Set cursorline.
 set cursorline
-hi CursorLine cterm=NONE ctermbg=234 ctermfg=NONE
-hi CursorLineNr ctermbg=234 ctermfg=Red cterm=bold
 
 " Set cursorcolumn.
 set cursorcolumn
-hi CursorColumn cterm=NONE ctermbg=234 ctermfg=NONE
 
 " Set path to local working dir.
 let &path = getcwd() . '/**'
@@ -183,6 +200,8 @@ filetype on
 filetype plugin indent on
 
 " Color scheme settings.
+let g:gruvbox_contrast_dark = 'medium'
+colorscheme gruvbox
 set background=dark
 
 " Set netrw settings.
@@ -214,9 +233,13 @@ augroup keywords
     au FileType help setlocal keywordprg=:help
 augroup END
 
-augroup keywords
+augroup retab_on_write
     au BufWrite * retab
 augroup END
+
+augroup local
+    au User Startified setlocal cursorline
+augroup end
 
 "     ____                 __  _
 "    / __/_  ______  _____/ /_(_)___  ____  _____
@@ -226,7 +249,7 @@ augroup END
 
 " Filetype detection and set shiftwidth according to filetype.
 function! SetSw(blacklist) "{{{
-    let index = index(a:blacklist, &ft)
+    let index = index(a:blacklist, &filetype)
     if index<0
         let sw=4
     elseif index==5
@@ -236,32 +259,32 @@ function! SetSw(blacklist) "{{{
         let sw=2
     endif
     set modifiable
-    execute "set tabstop=".sw
-    execute "set softtabstop=".sw
-    execute "set shiftwidth=".sw
+    execute 'set tabstop='.sw
+    execute 'set softtabstop='.sw
+    execute 'set shiftwidth='.sw
 endfunction "}}}
 
 " Save current sessoin as $HOME/.vim/sessions/session-201911241740.vim
 function! SaveCurrentSession() "{{{
-    let path = $HOME . "/.vim/sessions/"
-    let session_name = "session" . strftime("-%Y%m%d%H%M%S.vim")"
+    let path = $HOME . '/.vim/sessions/'
+    let session_name = 'session' . strftime('-%Y%m%d%H%M%S.vim')
     let session = path . session_name
-    let latest = path . "latest"
-    execute "mksession " . session
-    execute "!if [ -L " . latest . " ]; then rm " . latest . ";fi"
-    execute "!ln -s " . session . " " . latest
+    let latest = path . 'latest'
+    execute 'mksession ' . session
+    execute '!if [ -L ' . latest . ' ]; then rm ' . latest . ';fi'
+    execute '!ln -s ' . session . ' ' . latest
 endfunction "}}}
 
 " Load latest session.
 function! LoadLatestSession() "{{{
-    let path = $HOME . "/.vim/sessions/"
-    let latest = path . "latest"
-    execute "source " . latest
+    let path = $HOME . '/.vim/sessions/'
+    let latest = path . 'latest'
+    execute 'source ' . latest
 endfunction "}}}
 
 " Toggle Vexplore with.
 function! ToggleVExplorer()
-  if exists("t:expl_buf_num")
+  if exists('t:expl_buf_num')
       let expl_win_num = bufwinnr(t:expl_buf_num)
       if expl_win_num != -1
           let cur_win_nr = winnr()
@@ -275,7 +298,7 @@ function! ToggleVExplorer()
   else
       exec '1wincmd w'
       Vexplore
-      let t:expl_buf_num = bufnr("%")
+      let t:expl_buf_num = bufnr('%')
   endif
 endfunction
 
@@ -338,10 +361,10 @@ nnoremap <silent> <Leader>r :term ++rows=20 ++close ranger<CR>
 nnoremap <silent> <leader>ss :call SaveCurrentSession()<CR>
 nnoremap <silent> <leader>ls :call LoadLatestSession()<CR>
 
-" Goyo writing plugin
+" Goyo writing plugin.
 nnoremap <silent> <Leader>ga :Goyo<CR>
 
-" Goyo writing plugin
+" Change directory.
 nnoremap <Leader>cd :cd %:p:h<Tab>
 
 " Remap keys for gotos
@@ -366,5 +389,3 @@ command! MakeTags !ctags -R .
 " /  __/>  </ /_/ /  __/ /  / / / / / / /  __/ / / / /_/ /_/ / /
 " \___/_/|_/ .___/\___/_/  /_/_/ /_/ /_/\___/_/ /_/\__/\__,_/_/
 "         /_/
-
-" Experimental settings.

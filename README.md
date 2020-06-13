@@ -10,6 +10,15 @@ about Vim.
 
 In the end I started using plugins again.
 
+## Look
+
+Currently using gruvbox again.
+
+![Vim](screenshot.png "Vim screenshot")
+
+The configuration for polybar on top can be found at
+[oliverwiegers/dotfiles](https://github.com/oliverwiegers/dotfiles).
+
 ## Installed Plugins
 
 - [ale](https://github.com/w0rp/ale.git)
@@ -41,12 +50,3 @@ $ cd .vim
 $ stow vimrc
 $ ./helper-scripts/manage-coc.sh -i
 ```
-
-## Look
-
-Currently using wal theme with colors from void linux wallpaper.
-
-![Vim](screenshot.png "Vim screenshot")
-
-The configuration for polybar on top can be found at
-[oliverwiegers/dotfiles](https://github.com/oliverwiegers/dotfiles).

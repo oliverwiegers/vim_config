@@ -45,7 +45,7 @@ if executable('fzf')
     
     " Files + devicons
     function! Fzf_dev(qargs)
-      let l:fzf_files_options = '-i --preview "bat --theme="OneHalfDark" --style=numbers,changes --color always {2..-1} | head -'.&lines.'" --expect=ctrl-t,ctrl-v,ctrl-x --multi --bind=ctrl-a:select-all,ctrl-d:deselect-all'
+      let l:fzf_files_options = '-i --preview "bat --theme="base16" --style=numbers,changes --color always {2..-1} | head -'.&lines.'" --expect=ctrl-t,ctrl-v,ctrl-x --multi --bind=ctrl-a:select-all,ctrl-d:deselect-all'
     
       function! s:files(dir)
         let l:cmd = $FZF_DEFAULT_COMMAND

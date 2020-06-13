@@ -10,9 +10,6 @@
 [submodule "pack/plugins/start/syntastic"]
 	path = pack/plugins/start/syntastic
 	url = https://github.com/vim-syntastic/syntastic.git
-[submodule "pack/plugins/start/wal.vim"]
-	path = pack/plugins/start/wal.vim
-	url = https://github.com/dylanaraps/wal.vim.git
 [submodule "pack/plugins/start/vim-racer"]
 	path = pack/plugins/start/vim-racer
 	url = https://github.com/racer-rust/vim-racer.git

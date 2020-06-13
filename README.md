@@ -16,17 +16,21 @@ In the end I started using plugins again.
 - [fzf.vim](https://github.com/junegunn/fzf.vim)
 - [wal.vim](https://github.com/dylanaraps/wal.vim)
 - [airline](https://github.com/vim-airline/vim-airline)
+- [gruvbox](https://github.com/morhetz/gruvbox)
 - [coc.nvim](https://github.com/neoclide/coc.nvim)
 - [rust.vim](https://github.com/rust-lang/rust.vim)
 - [goyo.vim](https://github.com/junegunn/goyo.vim)
+- [codi.vim](https://github.com/metakirby5/codi.vim)
 - [vim-rails](https://github.com/tpope/vim-rails)
 - [vim-racer](https://github.com/racer-rust/vim-racer)
+- [vader.vim](https://github.com/junegunn/vader.vim)
 - [vim-dadbod](https://github.com/tpope/vim-dadbod)
 - [rcshell.vim](https://github.com/vim-scripts/rcshell.vim)
 - [vim-bundler](https://github.com/tpope/vim-bundler)
 - [vim-devicons](https://github.com/ryanoasis/vim-devicons.git)
 - [vim-fugitive](https://github.com/tpope/vim-fugitive.git)
 - [vim-capslock](https://github.com/tpope/vim-capslock)
+- [vim-startify](https://github.com/mhinz/vim-startify)
 
 ## Installation
 
@@ -35,6 +39,7 @@ $ cd $HOME
 $ git clone --recursive https://github.com/oliverwigers/vim_config .vim
 $ cd .vim
 $ stow vimrc
+$ ./helper-scripts/manage-coc.sh -i
 ```
 
 ## Look

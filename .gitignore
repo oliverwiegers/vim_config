@@ -4,3 +4,4 @@ pack/plugins/opt/
 undodir/
 sessions/
 pack/plugins/start/coc.nvim/
+*.swp

@@ -261,21 +261,21 @@ let blacklist =
         \ 'puppet', 'pp', 'ruby', 'eruby']
 
 augroup types
+    autocmd!
     au BufRead,BufNewFile,BufNew *
         \ call SetSw(blacklist)
     au BufRead,BufNewFile,BufNew *.pp  set filetype=puppet
+    au BufWrite * retab
 augroup END
 
 augroup keywords
+    autocmd!
     au FileType vim setlocal keywordprg=:help
     au FileType help setlocal keywordprg=:help
 augroup END
 
-augroup retab_on_write
-    au BufWrite * retab
-augroup END
-
 augroup local
+    autocmd!
     au User Startified setlocal cursorline
 augroup end
 

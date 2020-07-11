@@ -1,57 +1,57 @@
 [submodule "pack/plugins/start/airline"]
-	path = pack/plugins/start/airline
-	url = https://github.com/vim-airline/vim-airline.git
+    path = pack/plugins/start/airline
+    url = https://github.com/vim-airline/vim-airline.git
 [submodule "pack/plugins/start/vim-devicons"]
-	path = pack/plugins/start/vim-devicons
-	url = https://github.com/ryanoasis/vim-devicons.git
+    path = pack/plugins/start/vim-devicons
+    url = https://github.com/ryanoasis/vim-devicons.git
 [submodule "pack/plugins/start/vim-fugitive"]
-	path = pack/plugins/start/vim-fugitive
-	url = https://github.com/tpope/vim-fugitive.git
+    path = pack/plugins/start/vim-fugitive
+    url = https://github.com/tpope/vim-fugitive.git
 [submodule "pack/plugins/start/syntastic"]
-	path = pack/plugins/start/syntastic
-	url = https://github.com/vim-syntastic/syntastic.git
+    path = pack/plugins/start/syntastic
+    url = https://github.com/vim-syntastic/syntastic.git
 [submodule "pack/plugins/start/vim-racer"]
-	path = pack/plugins/start/vim-racer
-	url = https://github.com/racer-rust/vim-racer.git
+    path = pack/plugins/start/vim-racer
+    url = https://github.com/racer-rust/vim-racer.git
 [submodule "pack/plugins/start/rust.vim"]
-	path = pack/plugins/start/rust.vim
-	url = https://github.com/rust-lang/rust.vim.git
+    path = pack/plugins/start/rust.vim
+    url = https://github.com/rust-lang/rust.vim.git
 [submodule "pack/plugins/start/rcshell.vim"]
-	path = pack/plugins/start/rcshell.vim
-	url = https://github.com/vim-scripts/rcshell.vim.git
+    path = pack/plugins/start/rcshell.vim
+    url = https://github.com/vim-scripts/rcshell.vim.git
 [submodule "pack/plugins/start/fzf.vim"]
-	path = pack/plugins/start/fzf.vim
-	url = https://github.com/junegunn/fzf.vim.git
+    path = pack/plugins/start/fzf.vim
+    url = https://github.com/junegunn/fzf.vim.git
 [submodule "pack/plugins/start/goyo.vim"]
-	path = pack/plugins/start/goyo.vim
-	url = https://github.com/junegunn/goyo.vim.git
+    path = pack/plugins/start/goyo.vim
+    url = https://github.com/junegunn/goyo.vim.git
 [submodule "pack/plugins/start/vim-dadbod"]
-	path = pack/plugins/start/vim-dadbod
-	url = https://github.com/tpope/vim-dadbod.git
+    path = pack/plugins/start/vim-dadbod
+    url = https://github.com/tpope/vim-dadbod.git
 [submodule "pack/plugins/start/vim-rails"]
-	path = pack/plugins/start/vim-rails
-	url = https://github.com/tpope/vim-rails.git
+    path = pack/plugins/start/vim-rails
+    url = https://github.com/tpope/vim-rails.git
 [submodule "pack/plugins/start/YouCompleteMe"]
-	path = pack/plugins/start/YouCompleteMe
-	url = https://github.com/ycm-core/YouCompleteMe.git
+    path = pack/plugins/start/YouCompleteMe
+    url = https://github.com/ycm-core/YouCompleteMe.git
 [submodule "pack/plugins/start/vim-bundler"]
-	path = pack/plugins/start/vim-bundler
-	url = https://github.com/tpope/vim-bundler.git
+    path = pack/plugins/start/vim-bundler
+    url = https://github.com/tpope/vim-bundler.git
 [submodule "pack/plugins/start/vim-capslock"]
-	path = pack/plugins/start/vim-capslock
-	url = https://github.com/tpope/vim-capslock.git
+    path = pack/plugins/start/vim-capslock
+    url = https://github.com/tpope/vim-capslock.git
 [submodule "pack/plugins/start/vader.vim"]
-	path = pack/plugins/start/vader.vim
-	url = https://github.com/junegunn/vader.vim.git
+    path = pack/plugins/start/vader.vim
+    url = https://github.com/junegunn/vader.vim.git
 [submodule "pack/plugins/start/ale"]
-	path = pack/plugins/start/ale
-	url = git@github.com:oliverwiegers/ale.git
+    path = pack/plugins/start/ale
+    url = https://github.com/oliverwiegers/ale.git
 [submodule "pack/plugins/start/codi.vim"]
-	path = pack/plugins/start/codi.vim
-	url = https://github.com/metakirby5/codi.vim.git
+    path = pack/plugins/start/codi.vim
+    url = https://github.com/metakirby5/codi.vim.git
 [submodule "pack/plugins/start/vim-startify"]
-	path = pack/plugins/start/vim-startify
-	url = https://github.com/mhinz/vim-startify.git
+    path = pack/plugins/start/vim-startify
+    url = https://github.com/mhinz/vim-startify.git
 [submodule "pack/plugins/start/gruvbox"]
-	path = pack/plugins/start/gruvbox
-	url = https://github.com/morhetz/gruvbox.git
+    path = pack/plugins/start/gruvbox
+    url = https://github.com/morhetz/gruvbox.git

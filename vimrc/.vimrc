@@ -320,26 +320,6 @@ function! LoadLatestSession() "{{{
     execute 'source ' . latest
 endfunction "}}}
 
-" Toggle Vexplore with.
-function! ToggleVExplorer()
-  if exists('t:expl_buf_num')
-      let expl_win_num = bufwinnr(t:expl_buf_num)
-      if expl_win_num != -1
-          let cur_win_nr = winnr()
-          exec expl_win_num . 'wincmd w'
-          close
-          exec cur_win_nr . 'wincmd w'
-          unlet t:expl_buf_num
-      else
-          unlet t:expl_buf_num
-      endif
-  else
-      exec '1wincmd w'
-      Vexplore
-      let t:expl_buf_num = bufnr('%')
-  endif
-endfunction
-
 "     __                                          _
 "    / /_____  __  ______ ___  ____ _____  ____  (_)___  ____ ______
 "   / //_/ _ \/ / / / __ `__ \/ __ `/ __ \/ __ \/ / __ \/ __ `/ ___/
@@ -353,9 +333,6 @@ let mapleader = "\<Space>"
 " A.L.E keybindings.
 nmap <silent> <leader>an :ALENext<cr>
 nmap <silent> <leader>ap :ALEPrevious<cr>
-
-" File navigation.
-nnoremap <silent> <Leader><Space> :call ToggleVExplorer()<CR>
 
 " Usefull mappings for writing code.
 nnoremap <silent> gf <C-W>gf
@@ -385,9 +362,9 @@ nnoremap <silent> <S-u> :redo<CR>
 nnoremap <silent> <Leader>u :let @/=''<CR>
 
 " FZF commands.
-nnoremap <tab><tab> :Files<CR>
+nnoremap <tab><tab> :Rg<CR>
 nnoremap <leader>b :Buffers<CR>
-nnoremap <leader><tab> :Rg<CR>
+nnoremap <leader><space> :Files<CR>
 nnoremap <leader>gc :Commits<CR>
 
 " Open terminal in vsplit.

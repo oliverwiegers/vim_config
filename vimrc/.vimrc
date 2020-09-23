@@ -238,7 +238,7 @@ filetype on
 filetype plugin indent on
 
 " Color scheme settings.
-let g:gruvbox_contrast_dark = 'medium'
+let g:gruvbox_contrast_dark = 'hard'
 colorscheme gruvbox
 set background=dark
 
@@ -382,11 +382,25 @@ nnoremap <silent> <Leader>ga :Goyo<CR>
 " Change directory.
 nnoremap <Leader>cd :cd %:p:h<Tab>
 
-" Remap keys for gotos
+" COC keybindings
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+nmap <leader> rr <Plug>(coc-rename)
+nnoremap <leader>prw :CocSearch <C-R>=expand("<cword>")<CR><CR>
+nnoremap <leader>prW :CocSearch <C-R>=expand("<cWORD>")<CR><CR>
+
+" Copy to clipboard
+vnoremap  <leader>y  "+y
+nnoremap  <leader>Y  "+yg_
+nnoremap  <leader>y  "+y
+
+" Paste from clipboard
+nnoremap <leader>p "+p
+nnoremap <leader>P "+P
+vnoremap <leader>p "+p
+vnoremap <leader>P "+P
 
 "                                                   __
 "   _________  ____ ___  ____ ___  ____ _____  ____/ /____

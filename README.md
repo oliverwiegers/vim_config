@@ -45,7 +45,7 @@ The configuration for polybar on top can be found at
 
 ```
 $ cd $HOME
-$ git clone --recursive https://github.com/oliverwigers/vim_config .vim
+$ git clone --recursive https://github.com/oliverwiegers/vim_config .vim
 $ cd .vim
 $ stow vimrc
 $ ./helper-scripts/manage-coc.sh -i

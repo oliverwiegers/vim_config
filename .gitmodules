@@ -45,7 +45,7 @@
     url = https://github.com/junegunn/vader.vim.git
 [submodule "pack/plugins/start/ale"]
     path = pack/plugins/start/ale
-    url = https://github.com/oliverwiegers/ale.git
+    url = https://github.com/dense-analysis/ale.git
 [submodule "pack/plugins/start/codi.vim"]
     path = pack/plugins/start/codi.vim
     url = https://github.com/metakirby5/codi.vim.git
@@ -56,5 +56,5 @@
     path = pack/plugins/start/gruvbox
     url = https://github.com/morhetz/gruvbox.git
 [submodule "pack/plugins/start/bats.vim"]
-	path = pack/plugins/start/bats.vim
-	url = https://github.com/aliou/bats.vim.git
+    path = pack/plugins/start/bats.vim
+    url = https://github.com/aliou/bats.vim.git

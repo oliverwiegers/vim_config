@@ -34,6 +34,9 @@ let g:airline_theme = 'gruvbox'
 
 " FZF settings.
 if executable('fzf')
+    if filereadable("/usr/share/doc/fzf/examples/fzf.vim")
+        source /usr/share/doc/fzf/examples/fzf.vim
+    endif
     if executable('rg')
         let s:rg_globs =
                     \ '--glob "!**/site-packages/**"
@@ -418,3 +421,4 @@ command! MakeTags !ctags -R .
 " /  __/>  </ /_/ /  __/ /  / / / / / / /  __/ / / / /_/ /_/ / /
 " \___/_/|_/ .___/\___/_/  /_/_/ /_/ /_/\___/_/ /_/\__/\__,_/_/
 "         /_/
+source $HOME/Downloads/google_python_style.vim

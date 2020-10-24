@@ -13,11 +13,9 @@ In the end I started using plugins again.
 ## Look
 
 Currently using gruvbox again.
+Screenshot is showing the ripgrep preview.
 
 ![Vim](screenshot.png "Vim screenshot")
-
-The configuration for polybar on top can be found at
-[oliverwiegers/dotfiles](https://github.com/oliverwiegers/dotfiles).
 
 ## Installed Plugins
 
@@ -29,7 +27,6 @@ The configuration for polybar on top can be found at
 - [coc.nvim](https://github.com/neoclide/coc.nvim)
 - [rust.vim](https://github.com/rust-lang/rust.vim)
 - [goyo.vim](https://github.com/junegunn/goyo.vim)
-- [codi.vim](https://github.com/metakirby5/codi.vim)
 - [vim-rails](https://github.com/tpope/vim-rails)
 - [vim-racer](https://github.com/racer-rust/vim-racer)
 - [vader.vim](https://github.com/junegunn/vader.vim)
@@ -40,6 +37,13 @@ The configuration for polybar on top can be found at
 - [vim-fugitive](https://github.com/tpope/vim-fugitive.git)
 - [vim-capslock](https://github.com/tpope/vim-capslock)
 - [vim-startify](https://github.com/mhinz/vim-startify)
+
+## External dependencies
+
+- [ripgrep](https://github.com/BurntSushi/ripgrep) is needed to recursively
+search directory.
+- [bat](https://github.com/sharkdp/bat) is needed for ripgrep preview.
+- [fzf](https://github.com/junegunn/fzf) is needed for fzf.vim to run.
 
 ## Installation
 

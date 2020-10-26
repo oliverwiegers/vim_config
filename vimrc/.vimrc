@@ -336,4 +336,3 @@ command! MakeTags !ctags -R .
 " /  __/>  </ /_/ /  __/ /  / / / / / / /  __/ / / / /_/ /_/ / /
 " \___/_/|_/ .___/\___/_/  /_/_/ /_/ /_/\___/_/ /_/\__/\__,_/_/
 "         /_/
-source $HOME/Downloads/google_python_style.vim

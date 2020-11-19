@@ -34,6 +34,7 @@ let g:airline_theme = 'gruvbox'
 
 " FZF settings.
 if executable('fzf')
+    set rtp+=/usr/local/opt/fzf
     if filereadable("/usr/share/doc/fzf/examples/fzf.vim")
         source /usr/share/doc/fzf/examples/fzf.vim
     endif

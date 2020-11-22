@@ -46,9 +46,6 @@
 [submodule "pack/plugins/start/ale"]
     path = pack/plugins/start/ale
     url = https://github.com/dense-analysis/ale.git
-[submodule "pack/plugins/start/codi.vim"]
-    path = pack/plugins/start/codi.vim
-    url = https://github.com/metakirby5/codi.vim.git
 [submodule "pack/plugins/start/vim-startify"]
     path = pack/plugins/start/vim-startify
     url = https://github.com/mhinz/vim-startify.git

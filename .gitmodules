@@ -57,7 +57,7 @@
     url = https://github.com/aliou/bats.vim.git
 [submodule "pack/plugins/start/vim-rhubarb"]
     path = pack/plugins/start/vim-rhubarb
-    url = https://ithub.com:tpope/vim-rhubarb.git
+    url = https://github.com/tpope/vim-rhubarb.git
 [submodule "pack/plugins/start/fugitive-gitlab.vim"]
     path = pack/plugins/start/fugitive-gitlab.vim
-    url = https://github.com:shumphrey/fugitive-gitlab.vim.git
+    url = https://github.com/shumphrey/fugitive-gitlab.vim.git

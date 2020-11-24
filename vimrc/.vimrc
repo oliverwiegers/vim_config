@@ -278,7 +278,7 @@ nnoremap <silent> <Leader>s :source $MYVIMRC<CR>
 nnoremap <silent> <S-u> :redo<CR>
 
 " Reset search pattern.
-nnoremap <silent> <Leader>u :let @/=''<CR>
+nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
 
 " FZF commands.
 nnoremap <tab><tab> :Rg<CR>

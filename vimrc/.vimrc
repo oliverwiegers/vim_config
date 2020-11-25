@@ -250,8 +250,9 @@ endfunction "}}}
 let mapleader = "\<Space>"
 
 " A.L.E keybindings.
-nmap <silent> <leader>an :ALENext<cr>
-nmap <silent> <leader>ap :ALEPrevious<cr>
+nnoremap <silent> <leader>an :ALENext<cr>
+nnoremap <silent> <leader>ap :ALEPrevious<cr>
+nnoremap <silent> <leader>ar :ALERename<cr>
 
 " Usefull mappings for writing code.
 nnoremap <silent> gf <C-W>gf

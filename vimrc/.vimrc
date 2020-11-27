@@ -32,6 +32,11 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 let g:airline_theme = 'gruvbox'
 
+" Fugitive token reading for private gitlab instances.
+if filereadable(expand('~/.vim_tokens.vim'))
+    source ~/.vim_tokens.vim
+endif
+
 " FZF settings.
 if executable('fzf')
     set rtp+=/usr/local/opt/fzf

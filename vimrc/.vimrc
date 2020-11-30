@@ -312,9 +312,9 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
-nmap <leader> rr <Plug>(coc-rename)
-nnoremap <leader>prw :CocSearch <C-R>=expand("<cword>")<CR><CR>
-nnoremap <leader>prW :CocSearch <C-R>=expand("<cWORD>")<CR><CR>
+nmap <leader> cr <Plug>(coc-rename)
+nnoremap <leader>pw :CocSearch <C-R>=expand("<cword>")<CR><CR>
+nnoremap <leader>pW :CocSearch <C-R>=expand("<cWORD>")<CR><CR>
 
 " Copy to clipboard
 vnoremap  <leader>y  "+y

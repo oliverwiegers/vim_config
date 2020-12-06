@@ -17,6 +17,13 @@ set exrc secure
 "  / .___/_/\__,_/\__, /_/_/ /_/____/
 " /_/            /____/
 
+" MKDX
+let g:mkdx#settings = { 'highlight': { 'enable': 1 },
+    \ 'gf_on_steroids': 1,
+    \ 'enter': { 'shift': 1 },
+    \ 'links': { 'external': { 'enable': 1 } },
+    \ 'toc': { 'text': 'Table of Contents', 'update_on_write': 1 } }
+
 " A.L.E. settings.
 let g:ale_completion_enabled = 1
 let g:ale_sign_error = '✗'
@@ -313,8 +320,13 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 nmap <leader> cr <Plug>(coc-rename)
+<<<<<<< HEAD
 nnoremap <leader>pw :CocSearch <C-R>=expand("<cword>")<CR><CR>
 nnoremap <leader>pW :CocSearch <C-R>=expand("<cWORD>")<CR><CR>
+=======
+nnoremap <leader>prw :CocSearch <C-R>=expand("<cword>")<CR><CR>
+nnoremap <leader>prW :CocSearch <C-R>=expand("<cWORD>")<CR><CR>
+>>>>>>> b61e51c (remove unused plugins)
 
 " Copy to clipboard
 vnoremap  <leader>y  "+y

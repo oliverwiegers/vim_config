@@ -320,13 +320,8 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 nmap <leader> cr <Plug>(coc-rename)
-<<<<<<< HEAD
 nnoremap <leader>pw :CocSearch <C-R>=expand("<cword>")<CR><CR>
 nnoremap <leader>pW :CocSearch <C-R>=expand("<cWORD>")<CR><CR>
-=======
-nnoremap <leader>prw :CocSearch <C-R>=expand("<cword>")<CR><CR>
-nnoremap <leader>prW :CocSearch <C-R>=expand("<cWORD>")<CR><CR>
->>>>>>> b61e51c (remove unused plugins)
 
 " Copy to clipboard
 vnoremap  <leader>y  "+y

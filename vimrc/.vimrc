@@ -17,6 +17,10 @@ set exrc secure
 "  / .___/_/\__,_/\__, /_/_/ /_/____/
 " /_/            /____/
 
+" vimtex
+let g:vimtex_compiler_method = 'tectonic'
+let g:vimtex_view_method = 'zathura'
+
 " MKDX
 let g:mkdx#settings = { 'highlight': { 'enable': 1 },
     \ 'gf_on_steroids': 1,
@@ -343,6 +347,8 @@ vnoremap <leader>P "+P
 
 " Make ctags.
 command! MakeTags !ctags -R .
+" Create PDF from Markdown document containing latex.
+command! CreateML !make filename=%:r
 
 "                              _                      __        __
 "   ___  _  ______  ___  _____(_)___ ___  ___  ____  / /_____ _/ /

@@ -47,5 +47,8 @@
     path = pack/plugins/start/fugitive-gitlab.vim
     url = https://github.com/shumphrey/fugitive-gitlab.vim.git
 [submodule "pack/plugins/start/mkdx"]
-	path = pack/plugins/start/mkdx
-	url = git@github.com:SidOfc/mkdx.git
+    path = pack/plugins/start/mkdx
+    url = https://github.com/SidOfc/mkdx.git
+[submodule "pack/plugins/start/vimtex"]
+    path = pack/plugins/start/vimtex
+    url = https://github.com/lervag/vimtex.git

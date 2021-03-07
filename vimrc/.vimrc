@@ -9,6 +9,8 @@
 
 " Load local vimrc.
 set exrc secure
+set modeline
+set modelines=5
 
 "            __            _
 "     ____  / /_  ______ _(_)___  _____

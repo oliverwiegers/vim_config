@@ -52,3 +52,6 @@
 [submodule "pack/plugins/start/vimtex"]
     path = pack/plugins/start/vimtex
     url = https://github.com/lervag/vimtex.git
+[submodule "pack/plugins/start/wal.vim"]
+	path = pack/plugins/start/wal.vim
+	url = https://github.com/dylanaraps/wal.vim.git

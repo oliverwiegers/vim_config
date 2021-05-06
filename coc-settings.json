@@ -3,5 +3,6 @@
     "markdown",
     "yaml"
   ],
-  "diagnostic.displayByAle": true
+  "diagnostic.displayByAle": true,
+  "rust-client.channel": "nightly"
 }

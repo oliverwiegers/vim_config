@@ -54,3 +54,9 @@ $ cd .vim
 $ stow vimrc
 $ ./helper-scripts/manage-coc.sh -i
 ```
+
+### Coc.nvim extensions
+
+```
+vim '+CocInstall coc-rls coc-jedi'
+```

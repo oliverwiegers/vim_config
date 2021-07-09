@@ -58,3 +58,6 @@
 [submodule "pack/plugins/start/vim-virtualenv"]
 	path = pack/plugins/start/vim-virtualenv
 	url = https://github.com/jmcantrell/vim-virtualenv.git
+[submodule "pack/plugins/start/vim-puppet"]
+	path = pack/plugins/start/vim-puppet
+	url = https://github.com/rodjek/vim-puppet.git

@@ -168,7 +168,7 @@ hi SpellBad cterm=underline
 " Used shiftwidth settings.
 let blacklist =
         \ ['html', 'css', 'json', 'yaml', 'cpp', 'rust',
-        \ 'puppet', 'pp', 'ruby', 'eruby']
+        \ 'puppet', 'pp', 'ruby', 'eruby', 'markdown']
 
 augroup types
     au!

@@ -31,6 +31,7 @@ let g:mkdx#settings = { 'highlight': { 'enable': 1 },
     \ 'toc': { 'text': 'Table of Contents', 'update_on_write': 1 } }
 
 " A.L.E. settings.
+let g:ale_echo_msg_format = '[%linter%] [%severity%] %code% %s'
 let g:ale_completion_enabled = 1
 let g:ale_sign_error = '✗'
 let g:ale_sign_warning = '⚠'
@@ -168,7 +169,7 @@ hi SpellBad cterm=underline
 " Used shiftwidth settings.
 let blacklist =
         \ ['html', 'css', 'json', 'yaml', 'cpp', 'rust',
-        \ 'puppet', 'pp', 'ruby', 'eruby', 'markdown']
+        \ 'puppet', 'pp', 'ruby', 'eruby', 'markdown', 'python']
 
 augroup types
     au!

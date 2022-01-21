@@ -67,6 +67,32 @@ else
     echo 'Please install fzf.'
 endif
 
+" Goyo writing plugin.
+let g:goyo_width = 90
+let g:goyo_height = '80%'
+
+function! s:goyo_enter()
+  if executable('tmux') && strlen($TMUX)
+    silent !swaymsg fullscreen on
+    silent !tmux list-panes -F '\#F' | grep -q Z || tmux resize-pane -Z
+  endif
+  if executable('swaymsg') && strlen($SWAYSOCK)
+    silent !tmux set status off
+  endif
+endfunction
+
+function! s:goyo_leave()
+  if executable('tmux') && strlen($TMUX)
+    silent !tmux set status on
+    silent !tmux list-panes -F '\#F' | grep -q Z && tmux resize-pane -Z
+  endif
+  if executable('swaymsg') && strlen($SWAYSOCK)
+    silent !swaymsg fullscreen off
+  endif
+endfunction
+
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
 "               __  __  _
 "    ________  / /_/ /_(_)___  ____ ______
 "   / ___/ _ \/ __/ __/ / __ \/ __ `/ ___/

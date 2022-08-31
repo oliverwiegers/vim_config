@@ -346,6 +346,10 @@ vnoremap <leader>P "+P
 command! MakeTags !ctags -R .
 " Create PDF from Markdown document containing latex.
 command! CreateML !make filename=%:r
+" Yapf current file.
+command! Yapf 0,$! yapf
+" Update custom pylintrc
+command! UpdatePylintRC !wget -O ~/.vim/custom_linters/pylintrc --quiet https://google.github.io/styleguide/pylintrc     
 
 "                              _                      __        __
 "   ___  _  ______  ___  _____(_)___ ___  ___  ____  / /_____ _/ /

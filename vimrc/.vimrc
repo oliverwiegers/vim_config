@@ -193,14 +193,14 @@ hi clear SpellBad
 hi SpellBad cterm=underline
 
 " Used shiftwidth settings.
-let blacklist =
-        \ ['html', 'css', 'json', 'yaml', 'cpp', 'rust',
-        \ 'puppet', 'pp', 'ruby', 'eruby', 'markdown', 'python']
+let ignorelist =
+        \ ['html', 'css', 'scss', 'json', 'yaml', 'cpp', 'rust',
+        \ 'puppet', 'pp', 'ruby', 'eruby', 'markdown']
 
 augroup types
     au!
     au BufRead,BufNewFile,BufNew *
-        \ call SetSw(blacklist)
+        \ call SetSw(ignorelist)
     au BufRead,BufNewFile,BufNew *.pp  set filetype=puppet
     au BufWrite * retab
 augroup END
@@ -218,8 +218,8 @@ augroup END
 " /_/  \__,_/_/ /_/\___/\__/_/\____/_/ /_/____/
 
 " Filetype detection and set shiftwidth according to filetype.
-function! SetSw(blacklist) "{{{
-    let index = index(a:blacklist, &filetype)
+function! SetSw(ignorelist) "{{{
+    let index = index(a:ignorelist, &filetype)
     if index<0
         let sw=4
     elseif index==5

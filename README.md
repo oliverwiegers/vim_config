@@ -2,11 +2,11 @@
 
 Nothing to fancy just my vim config.
 
-Once I was trying to solve as many problems without plugins and came up with 
+Once I was trying to solve as many problems without plugins and came up with
 solutions replacing plugins like
 [Nerdcommenter](https://github.com/scrooloose/nerdcommenter). But at some point
-I noticed I was reinventing the wheel. It was a great journey and I learned alot
-about Vim. 
+I noticed I was reinventing the wheel. It was a great journey and I learned a
+lot about Vim.
 
 In the end I started using plugins again.
 
@@ -41,18 +41,18 @@ Screenshot is showing the ripgrep preview.
 ## External dependencies
 
 - [ripgrep](https://github.com/BurntSushi/ripgrep) is needed to recursively
-search directory.
+  search directory.
 - [bat](https://github.com/sharkdp/bat) is needed for ripgrep preview.
 - [fzf](https://github.com/junegunn/fzf) is needed for fzf.vim to run.
 
 ## Installation
 
 ```
-$ cd $HOME
-$ git clone --recursive https://github.com/oliverwiegers/vim_config .vim
-$ cd .vim
-$ stow vimrc
-$ ./helper-scripts/manage-coc.sh -i
+cd $HOME
+git clone --recursive https://github.com/oliverwiegers/vim_config .vim
+cd .vim
+stow vimrc
+./helper-scripts/manage-coc.sh -i
 ```
 
 ### Coc.nvim extensions

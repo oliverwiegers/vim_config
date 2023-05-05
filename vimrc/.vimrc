@@ -23,13 +23,6 @@ set modelines=5
 let g:vimtex_compiler_method = 'tectonic'
 let g:vimtex_view_method = 'zathura'
 
-" MKDX
-let g:mkdx#settings = { 'highlight': { 'enable': 1 },
-    \ 'gf_on_steroids': 1,
-    \ 'enter': { 'shift': 1 },
-    \ 'links': { 'external': { 'enable': 1 } },
-    \ 'toc': { 'text': 'Table of Contents', 'update_on_write': 1 } }
-
 " A.L.E. settings.
 let g:ale_echo_msg_format = '[%linter%] [%severity%] %code% %s'
 let g:ale_completion_enabled = 1
@@ -93,6 +86,7 @@ endfunction
 
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
+
 "               __  __  _
 "    ________  / /_/ /_(_)___  ____ ______
 "   / ___/ _ \/ __/ __/ / __ \/ __ `/ ___/
@@ -121,7 +115,7 @@ set encoding=utf-8
 scriptencoding utf-8
 
 " Show linenumbers and current line relative.
-set relativenumber nu
+set relativenumber number
 
 " Fix last character of lines.
 set backspace=indent,eol,start
@@ -154,7 +148,8 @@ set nrformats-=octal
 " Spellchecking.
 set complete+=d,kspell
 
-" Enable persistent undo.
+" Enable persistent undo. Or in other words: Beeing able to undo changes even if
+" the file was closed.
 set undodir=~/.vim/undodir
 set undofile
 set undolevels=1000
@@ -178,13 +173,6 @@ filetype plugin indent on
 let g:gruvbox_contrast_dark = 'hard'
 colorscheme gruvbox
 set background=dark
-
-" Set netrw settings.
-let g:netrw_banner       = 0
-let g:netrw_liststyle    = 3
-let g:netrw_browse_split = 4
-let g:netrw_altv         = 1
-let g:netrw_winsize      = 25
 
 " Spellcheking related highlighting.
 " Needs to be loaded after theme otherwise the them will overrride highlighting
@@ -265,11 +253,9 @@ let mapleader = "\<Space>"
 " A.L.E keybindings.
 nnoremap <silent> <leader>an :ALENext<cr>
 nnoremap <silent> <leader>ap :ALEPrevious<cr>
-nnoremap <silent> <leader>ar :ALERename<cr>
 
-" Usefull mappings for writing code.
+" GoTo file under cursor.
 nnoremap <silent> gf <C-W>gf
-vnoremap <silent> gf <C-W>gf
 
 " Save file as root.
 cmap w!! w !sudo tee % >/dev/null
@@ -303,6 +289,7 @@ nnoremap <leader>gc :Commits<CR>
 " Open terminal in vsplit.
 nnoremap <silent> <leader>t :term ++rows=20<CR>
 
+" Open ranger in vsplit.
 nnoremap <silent> <Leader>r :term ++rows=20 ++close ranger<CR>
 
 " Session management.
@@ -316,24 +303,21 @@ nnoremap <silent> <Leader>ga :Goyo<CR>
 nnoremap <Leader>cd :cd %:p:h<Tab>
 
 " COC keybindings
+" LSP for specific language has to be installed
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
-nmap <leader> cr <Plug>(coc-rename)
 nnoremap <leader>pw :CocSearch <C-R>=expand("<cword>")<CR><CR>
 nnoremap <leader>pW :CocSearch <C-R>=expand("<cWORD>")<CR><CR>
 
 " Copy to clipboard
 vnoremap  <leader>y  "+y
 nnoremap  <leader>Y  "+yg_
-nnoremap  <leader>y  "+y
 
 " Paste from clipboard
 nnoremap <leader>p "+p
 nnoremap <leader>P "+P
-vnoremap <leader>p "+p
-vnoremap <leader>P "+P
 
 "                                                   __
 "   _________  ____ ___  ____ ___  ____ _____  ____/ /____
@@ -342,12 +326,6 @@ vnoremap <leader>P "+P
 " \___/\____/_/ /_/ /_/_/ /_/ /_/\__,_/_/ /_/\__,_/____/
 "
 
-" Make ctags.
-command! MakeTags !ctags -R .
-" Create PDF from Markdown document containing latex.
-command! CreateML !make filename=%:r
-" Yapf current file.
-command! Yapf 0,$! yapf
 " Update custom pylintrc
 command! UpdatePylintRC !wget -O ~/.vim/custom_linters/pylintrc --quiet https://google.github.io/styleguide/pylintrc
 

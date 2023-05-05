@@ -7,9 +7,6 @@
 [submodule "pack/plugins/start/vim-fugitive"]
     path = pack/plugins/start/vim-fugitive
     url = https://github.com/tpope/vim-fugitive.git
-[submodule "pack/plugins/start/syntastic"]
-    path = pack/plugins/start/syntastic
-    url = https://github.com/vim-syntastic/syntastic.git
 [submodule "pack/plugins/start/vim-racer"]
     path = pack/plugins/start/vim-racer
     url = https://github.com/racer-rust/vim-racer.git
@@ -25,9 +22,6 @@
 [submodule "pack/plugins/start/vim-dadbod"]
     path = pack/plugins/start/vim-dadbod
     url = https://github.com/tpope/vim-dadbod.git
-[submodule "pack/plugins/start/YouCompleteMe"]
-    path = pack/plugins/start/YouCompleteMe
-    url = https://github.com/ycm-core/YouCompleteMe.git
 [submodule "pack/plugins/start/vader.vim"]
     path = pack/plugins/start/vader.vim
     url = https://github.com/junegunn/vader.vim.git
@@ -50,20 +44,23 @@
     path = pack/plugins/start/vimtex
     url = https://github.com/lervag/vimtex.git
 [submodule "pack/plugins/start/wal.vim"]
-	path = pack/plugins/start/wal.vim
-	url = https://github.com/dylanaraps/wal.vim.git
+    path = pack/plugins/start/wal.vim
+    url = https://github.com/dylanaraps/wal.vim.git
 [submodule "pack/plugins/start/vim-virtualenv"]
-	path = pack/plugins/start/vim-virtualenv
-	url = https://github.com/jmcantrell/vim-virtualenv.git
+    path = pack/plugins/start/vim-virtualenv
+    url = https://github.com/jmcantrell/vim-virtualenv.git
 [submodule "pack/plugins/start/vim-puppet"]
-	path = pack/plugins/start/vim-puppet
-	url = https://github.com/rodjek/vim-puppet.git
+    path = pack/plugins/start/vim-puppet
+    url = https://github.com/rodjek/vim-puppet.git
 [submodule "pack/plugins/start/vim-helm"]
-	path = pack/plugins/start/vim-helm
-	url = https://github.com/towolf/vim-helm.git
+    path = pack/plugins/start/vim-helm
+    url = https://github.com/towolf/vim-helm.git
 [submodule "pack/plugins/start/vim-mustache-handlebars"]
-	path = pack/plugins/start/vim-mustache-handlebars
-	url = https://github.com/mustache/vim-mustache-handlebars.git
+    path = pack/plugins/start/vim-mustache-handlebars
+    url = https://github.com/mustache/vim-mustache-handlebars.git
 [submodule "pack/plugins/start/vim-terraform"]
-	path = pack/plugins/start/vim-terraform
-	url = https://github.com/hashivim/vim-terraform.git
+    path = pack/plugins/start/vim-terraform
+    url = https://github.com/hashivim/vim-terraform.git
+[submodule "pack/plugins/start/YouCompleteMe"]
+    path = pack/plugins/start/YouCompleteMe
+    url = https://github.com/ycm-core/YouCompleteMe.git
